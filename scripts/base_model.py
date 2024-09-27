@@ -9,7 +9,7 @@ import torch.nn.functional as F
 from torch_sparse import SparseTensor, matmul
 from torch_scatter import scatter,scatter_add
 from torch_geometric.nn.conv import MessagePassing
-from torch_geometric.nn.pool.topk_pool import topk, filter_adj
+#from torch_geometric.nn.pool.topk_pool import topk, filter_adj #v1.3.0 deprecated - code ajouté en fin de fichier pour la compatibilité avec les nouvelles versions de bibliothèques.
 import pdb
 
 #inpired from the modules Graph Convolutional Layers from pytorch-geometric
@@ -133,14 +133,17 @@ class TopSelection(torch.nn.Module):
     def forward(self, x, edge_index, edge_attr=None, batch=None):
         if batch is None:
             batch = edge_index.new_zeros(x.size(0))
-        
+
+#       Version V. Bourgeais - ne fonctionne pas avec les nouvelles versions de bibliothèques        
         perm = topk(torch.abs(x).view(-1), self.ratio, batch)
         num_nodes = x.size(0)
         x = x[perm]
         batch = batch[perm]
+#       Version V. Bourgeais - ne fonctionne pas avec les nouvelles versions de bibliothèques        
         edge_index, edge_attr = filter_adj(edge_index, edge_attr, perm,
                                            num_nodes=num_nodes)
         return x, edge_index, edge_attr, batch, perm, x
+
 
     def __repr__(self):
         return '{}({}, ratio={})'.format(
@@ -260,3 +263,57 @@ class Net(torch.nn.Module):
             return x
         else:
             return x.view(-1)
+
+
+
+#Ajout de code des anciennes versions de bibliotèques qu'il manque...
+#code issu de la version 1.3.0 de pytorch
+
+def topk(x, ratio, batch):
+    num_nodes = scatter_add(batch.new_ones(x.size(0)), batch, dim=0)
+    batch_size, max_num_nodes = num_nodes.size(0), num_nodes.max().item()
+    k = (ratio * num_nodes.to(torch.float)).ceil().to(torch.long)
+
+    cum_num_nodes = torch.cat(
+        [num_nodes.new_zeros(1),
+         num_nodes.cumsum(dim=0)[:-1]], dim=0)
+
+    index = torch.arange(batch.size(0), dtype=torch.long, device=x.device)
+    index = (index - cum_num_nodes[batch]) + (batch * max_num_nodes)
+
+    dense_x = x.new_full((batch_size * max_num_nodes, ), -2)
+    dense_x[index] = x
+    dense_x = dense_x.view(batch_size, max_num_nodes)
+    _, perm = dense_x.sort(dim=-1, descending=True)
+
+    perm = perm + cum_num_nodes.view(-1, 1)
+    perm = perm.view(-1)
+
+    mask = [
+        torch.arange(k[i], dtype=torch.long, device=x.device) +
+        i * max_num_nodes for i in range(batch_size)
+    ]
+    mask = torch.cat(mask, dim=0)
+
+    perm = perm[mask]
+
+    return perm
+
+
+from torch_geometric.utils.num_nodes import maybe_num_nodes
+def filter_adj(edge_index, edge_attr, perm, num_nodes=None):
+    num_nodes = maybe_num_nodes(edge_index, num_nodes)
+
+    mask = perm.new_full((num_nodes, ), -1)
+    i = torch.arange(perm.size(0), dtype=torch.long, device=perm.device)
+    mask[perm] = i
+
+    row, col = edge_index
+    row, col = mask[row], mask[col]
+    mask = (row >= 0) & (col >= 0)
+    row, col = row[mask], col[mask]
+
+    if edge_attr is not None:
+        edge_attr = edge_attr[mask]
+
+    return torch.stack([row, col], dim=0), edge_attr

@@ -64,7 +64,10 @@ def train(args):
 	start = time.time()
 
 	connection_matrix = pd.read_csv(os.path.abspath(os.path.join(args.dir_files,"matrix_connection_{}.csv".format(args.type_graph))),index_col=0)
-	graph = nx.read_gpickle(os.path.join(args.dir_files,"gobp-{}-converted".format(args.type_graph))) #read the GO graph wich will be converted into the hidden layers of the network
+	#read the GO graph wich will be converted into the hidden layers of the network :
+#	graph = nx.read_gpickle(os.path.join(args.dir_files,"gobp-{}-converted".format(args.type_graph))) 
+	with open(os.path.join(args.dir_files,"gobp-{}-converted".format(args.type_graph)), 'rb') as f:
+		graph = pickle.load(f)
 	graph = from_networkx(graph, dim_inital_node_embedding=args.dim_init,label=args.n_classes)
 
 	n_samples = trainset.X.shape[0]

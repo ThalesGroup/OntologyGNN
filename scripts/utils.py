@@ -32,7 +32,7 @@ class GeneExpressionDataset(Dataset):
             transform (callable, optional): Optional transform to be applied
                 on a sample.
         """
-        loader =  np.load(file_name)
+        loader =  np.load(file_name, allow_pickle=True)
         self.X = loader['x'].astype('float32')
         if n_classes <2 :
             self.y = loader['y'].astype('float32')
@@ -55,8 +55,8 @@ class GeneExpressionDataset(Dataset):
         
         if class_weights:
             self.class_weight = torch.tensor(class_weight.compute_class_weight('balanced',
-                                                 np.unique(self.y),
-                                                 self.y).astype('float32'))
+                                                 classes = np.unique(self.y),
+                                                 y = self.y).astype('float32'))
 
     def __len__(self):
         return self.X.shape[0]
@@ -122,7 +122,8 @@ class EarlyStopping:
         self.counter = 0
         self.best_score = None
         self.early_stop = False
-        self.val_loss_min = np.Inf
+#        self.val_loss_min = np.Inf
+        self.val_loss_min = np.inf
         self.delta = delta
         self.path = path
         self.trace_func = trace_func
