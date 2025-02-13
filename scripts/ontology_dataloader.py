@@ -1,3 +1,7 @@
+# example run script
+# python ontology_dataloader titanic_ontology.obo --connect_features 'Cabin' 'Age' --save ontology ontology_data_connections.json
+
+
 import torch
 import obonet
 import networkx as nx
