@@ -1,5 +1,5 @@
 # example run script
-# python ontology_dataloader titanic_ontology.obo --connect_features 'Cabin' 'Age' --save ontology ontology_data_connections.json
+# python ontology_dataloader titanic_ontology.obo --connect_features 'Cabin' 'Age' --save ontology ontology_data_connections.json  (allows the user to connect specified features to classes and then save the connections)
 
 
 import torch
@@ -101,7 +101,8 @@ class OntologyDataLoader:
 
     def get_node_map(self, features):
 
-        """Returns the (n_features, n_nodes) dimensional matrix denoting connections of given features to other nodes in the ontology"""
+        """Returns the (n_nodes, n_nodes) dimensional matrix denoting connections of nodes (classes) to other nodes in the ontology"""
+        """It doesn't include the connections to features (if any specified by the user)"""
 
         if features is None:
             return self.get_adjacency_matrix()
