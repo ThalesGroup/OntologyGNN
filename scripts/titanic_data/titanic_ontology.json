@@ -1,0 +1,22 @@
+{
+    "ontology_mapping": {
+        "Passenger": [],
+        "Class": ["Pclass"],
+        "Demographics": ["Sex", "Age"],
+        "Family": ["SibSp", "Parch"],
+        "Ticket": ["Fare"],
+        "Cabin": ["CabinClass"],
+        "Embarkation": ["Embarked"]
+    },
+    "ontology_relationships": [
+        [0, 1],
+        [0, 2],
+        [0, 3],
+        [0, 5],
+        [0, 6],
+        [1, 5],
+        [1, 4],
+        [2, 3],
+        [6, 1]
+    ]
+}
