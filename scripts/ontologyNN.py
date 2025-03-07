@@ -3,9 +3,8 @@ from torch import nn
 from torch_geometric.nn import GCNConv, GATConv, global_mean_pool
 from torch_geometric.data import Data, DataLoader, Batch
 import numpy as np
-#from torch_scatter import scatter, scatter_add
 from torch import Tensor
-#from torch_scatter import scatter_add
+from torch_scatter import scatter_add
 from torch.nn import Linear, Parameter
 from torch.nn import functional as F
 from torch_geometric.nn import MessagePassing
@@ -20,25 +19,8 @@ OptTensor = Optional[Tensor]
 Size = Optional[Tuple[int, int]]
 
 class DAGProp(nn.Module):
-    
-    r"""
-    DAG propagation layer – aggregates information in an ontology classes graph
-    using leaf-to-node propagation.
-
-    Args:
-        in_channels (int or tuple): Input dimensionality. A tuple corresponds to
-            the sizes of source and target features.
-        out_channels (int): Output dimensionality.
-        root_weight (bool, optional): If :obj:`False`, transformed root node features
-            will not be added to the output. (default: :obj:`True`)
-        bias (bool, optional): If :obj:`False`, no additive bias will be learned.
-            (default: :obj:`True`)
-        nonlinearity (Callable, optional): The nonlinearity to use (default: :obj:`torch.tanh`)
-        aggr (str, optional): Aggregation method (default: "mean")
-        **kwargs: Additional keyword arguments.
-    """
-    
-    def __init__(self, in_channels, out_channels, root_weight=True, bias=True, nonlinearity=torch.tanh, aggr="mean", **kwargs):
+    def __init__(self, in_channels, out_channels, root_weight=True,
+                 bias=True, nonlinearity=torch.tanh, aggr="mean", **kwargs):
         super(DAGProp, self).__init__(**kwargs)
         
         self.in_channels = in_channels if isinstance(in_channels, tuple) else (in_channels, in_channels)
@@ -63,11 +45,10 @@ class DAGProp(nn.Module):
         graph.add_edges_from(edge_index.t().tolist())
         return not nx.is_directed_acyclic_graph(graph)
 
-    def forward(self, x: Tensor, edge_index: Adj, batch: OptTensor = None,
-                size: Size = None) -> Tensor:
+    def forward(self, x: torch.Tensor, edge_index: Adj, batch: OptTensor = None,
+                size: Size = None) -> torch.Tensor:
         device = x.device
         
-        # Check for cycles; raise error if graph is cyclic.
         if self.is_cyclic(edge_index):
             raise ValueError("The graph is cyclic")
         
@@ -78,37 +59,27 @@ class DAGProp(nn.Module):
         out = torch.zeros_like(x)
         visited = torch.zeros(x.size(0), dtype=torch.bool, device=device)
         
-        incoming = torch.zeros(x.size(0), dtype=torch.int8, device=device)
-        incoming.index_add_(0, edge_index[1], torch.ones(edge_index.size(1), dtype=torch.int8, device=device))
-        
+        incoming = scatter_add(torch.ones(edge_index.size(1), dtype=torch.int8, device=device), edge_index[1], dim=0, dim_size=x.size(0))
         leaves = (incoming == 0).nonzero(as_tuple=True)[0]
         out[leaves] = self.nonlinearity(x[leaves])
         visited[leaves] = True
         
-        # Process self-nodes.
         if self.root_weight:
             mask = (x != 0).any(dim=1)
             out[mask] = self.lin_r(x[mask])
         
         previous_visits = leaves
         
-        # Continue propagation until all nodes are visited.
         while not torch.all(visited):
             mask = torch.isin(edge_index[0], previous_visits)
             fathers = torch.unique(edge_index[1, mask])
             
-            all_children_visited = torch.zeros_like(visited, dtype=torch.int)
-            all_children_visited.index_add_(0, edge_index[1, mask], visited[edge_index[0, mask]].to(torch.int))
-            
-            total_children = torch.zeros_like(visited, dtype=torch.int)
-            total_children.index_add_(0, edge_index[1, mask], torch.ones_like(visited[edge_index[0, mask]], dtype=torch.int))
-            
+            all_children_visited = scatter_add(visited[edge_index[0, mask]].to(torch.int), edge_index[1, mask], dim=0, dim_size=x.size(0))
+            total_children = scatter_add(torch.ones_like(visited[edge_index[0, mask]], dtype=torch.int), edge_index[1, mask], dim=0, dim_size=x.size(0))
             ref_next_visits = fathers[all_children_visited[fathers] == total_children[fathers]]
             
             mask = torch.isin(edge_index[1], ref_next_visits)
-            aggregated = torch.zeros_like(out)
-            aggregated.index_add_(0, edge_index[1, mask], out[edge_index[0, mask]])
-            
+            aggregated = scatter_add(out[edge_index[0, mask]], edge_index[1, mask], dim=0, dim_size=x.size(0))
             out[ref_next_visits] += self.lin_l(aggregated[ref_next_visits])
             out[ref_next_visits] = self.nonlinearity(out[ref_next_visits])
             
@@ -120,7 +91,6 @@ class DAGProp(nn.Module):
     def __repr__(self):
         return '{}({}, {}, aggr={}, nonlinearity={})'.format(self.__class__.__name__, self.in_channels,
                                    self.out_channels,self.aggr,self.nonlinearity.__name__)
-
 
 class TopSelection(nn.Module):
     """Top selection for pooling layer used in GraphGONet with differentiable feature selection.
