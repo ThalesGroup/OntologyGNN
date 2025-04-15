@@ -2,3 +2,5 @@ obonet
 owlready2
 networkx
 pandas
+torch-geometric
+torch
