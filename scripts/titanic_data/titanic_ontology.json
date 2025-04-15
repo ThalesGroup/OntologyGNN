@@ -1,14 +1,14 @@
 {
-    "ontology_mapping": {
-        "Passenger": [],
+    "class_features_mapping": {
+        "Passenger": ["Sex", "Age"],
         "Class": ["Pclass"],
         "Demographics": ["Sex", "Age"],
         "Family": ["SibSp", "Parch"],
         "Ticket": ["Fare"],
-        "Cabin": ["CabinClass"],
-        "Embarkation": ["Embarked"]
+        "Cabin": ["CabinClass", "Pclass"],
+        "Ship Zone": ["Embarked"]
     },
-    "ontology_relationships": [
+    "class_relationships": [
         [0, 1],
         [0, 2],
         [0, 3],
@@ -17,6 +17,7 @@
         [1, 5],
         [1, 4],
         [2, 3],
-        [6, 1]
+        [6, 1],
+        [6, 5]
     ]
 }
