@@ -6,126 +6,53 @@ from torch_geometric.data import Data, DataLoader, Batch
 from torch.nn.init import xavier_uniform_, zeros_
 from torch_geometric.utils import subgraph
 import numpy as np
-#from torch_scatter import scatter, scatter_add
 from torch import Tensor
-#from torch_scatter import scatter_add, scatter, scatter_mean
 from torch.nn import Linear, Parameter
 from torch.nn import functional as F
 from torch_geometric.nn import MessagePassing
 import networkx as nx
-#import pycombo as combo
 from torch_geometric.typing import Adj, OptTensor, Size
 from torch_geometric.utils.num_nodes import maybe_num_nodes
+from torch_geometric.utils import add_self_loops
 from typing import Union, Tuple, Callable, Optional
 from matplotlib import pyplot as plt
 
-class GNNEncoder(nn.Module):
-    """GNN backbone for node embeddings."""
-    def __init__(self, in_dim, hidden_dim, out_dim):
+class GATEncoder(nn.Module):
+    """GAT-based encoder with attention value extraction"""
+    def __init__(self, in_dim, out_dim, heads=1):
         super().__init__()
-        self.conv1 = GCNConv(in_dim, out_dim)
-        self.conv2 = GCNConv(hidden_dim, out_dim)
-        self.norm = nn.LayerNorm(hidden_dim)
-        self.bn1 = nn.BatchNorm1d(hidden_dim)
+        self.conv1 = GATConv(in_dim, out_dim, heads=heads)
 
     def forward(self, x, edge_index):
-        x1 = F.relu(self.conv1(x, edge_index))#self.norm(F.relu(self.conv1(x, edge_index)))
-        #x = x1+x
-        #x = F.tanh(self.conv1(x, edge_index))
-        #x = self.conv2(x, edge_index)
-        return x1
+        # Returns node features and attention weights
+        x_out, (edge_index, attn_weights) = self.conv1(x, edge_index,
+                                                     return_attention_weights=True)
+        return F.elu(x_out), attn_weights.mean(dim=1)  # Average multi-head attention
 
-def init_weights(m):
-    if isinstance(m, nn.Linear):
-        torch.nn.init.xavier_uniform_(m.weight)
-        if m.bias is not None:
-            torch.nn.init.zeros_(m.bias)
-
-class CommunityAwareAttention(nn.Module):
-    """Combines node- and community-level attention."""
-    def __init__(self, in_dim, num_communities):
+class GNNEncoder(nn.Module):
+    """GNN backbone for node embeddings."""
+    def __init__(self, in_dim, hidden_dim, num_communities):
         super().__init__()
-        self.num_communities = num_communities
+        self.conv1 = GCNConv(in_dim, num_communities)
+        self.conv2 = GCNConv(hidden_dim, num_communities)
+        self.act = nn.LeakyReLU(0.2),
+        self.norm = nn.LayerNorm(num_communities)
 
-        # Community assignment (structure-aware)
-        self.community_assign = GCNConv(in_dim, num_communities)
+    def forward(self, x, edge_index, edge_weight=None):
 
-        #xavier_uniform_(self.community_assign.lin.weight)
+        edge_index, _ = add_self_loops(
+        edge_index, edge_weight, fill_value=1e-10, num_nodes=x.size(0)
+        )
 
-        # Node-level attention parameters
-        self.node_query = nn.Parameter(torch.randn(num_communities, in_dim))
-        self.node_key = nn.Linear(in_dim, in_dim)
-
-        # In CommunityAwareAttention.__init__()
-        # self.node_attn_heads = nn.ModuleList([
-        #     nn.Linear(in_dim, in_dim) for _ in range(4)
-        # ])
-
-        # Community-level attention parameters
-        self.comm_query = nn.Parameter(torch.randn(in_dim))
-        self.comm_key = nn.Linear(in_dim, in_dim)
-
-        self.attn_dropout = nn.Dropout(0.3)
-
-    def forward(self, x, edge_index, batch):
-        """
-        Args:
-            x: Node features [N, in_dim]
-            edge_index: Graph connectivity [2, E]
-            batch: Batch vector [N]
-        Returns:
-            graph_embs: Graph embeddings [batch_size, in_dim]
-        """
-        graph_embs = []
-        all_comm_assign = []  # Store community assignments for all graphs
-
-        #print(batch.unique())
-        for graph_idx in batch.unique():
-            mask = (batch == graph_idx)
-            x_sub = x[mask]
-            edge_index_sub, _ = subgraph(mask, edge_index, num_nodes=x.size(0), relabel_nodes=True)
-
-            # Step 1: Detect communities (soft assignments)
-            #x_sub = x_sub.unsqueeze(-1) if x_sub.dim() == 1 else x_sub
-            #print(x_sub.shape)
-            comm_logits = self.community_assign(x_sub, edge_index_sub)
-            comm_assign = F.softmax(comm_logits, dim=-1)  # [N_sub, K]
-            #print(comm_assign.shape)
-            all_comm_assign.append(comm_assign)
-
-            # Step 2: Node-Level Attention (within communities)
-            # Compute keys for all nodes
-            keys = self.node_key(x_sub)  # [N_sub, in_dim]
-
-            # Compute attention scores per community
-            node_scores = torch.einsum('kd,nd->kn', self.node_query, keys)  # [K, N_sub]
-            #print(node_scores.shape)
-            node_scores = node_scores * comm_assign.T  # Mask by community assignments
-            node_attn = F.softmax(node_scores, dim=1)  # [K, N_sub]
-            #print(node_attn)
-
-            # Aggregate node features per community
-            comm_emb = torch.einsum('kn,nd->kd', node_attn, x_sub)  # [K, in_dim]
-
-            # Step 3: Community-Level Attention (across communities)
-            comm_keys = self.comm_key(comm_emb)  # [K, in_dim]
-            comm_scores = torch.einsum('d,kd->k', self.comm_query, comm_keys)  # [K]
-
-            #comm_attn = self.attn_dropout(F.softmax(comm_scores, dim=0))
-            comm_attn = F.softmax(comm_scores, dim=0)  # [K]
-            #print(comm_attn)
-
-            # Aggregate community features
-            graph_emb = torch.einsum('k,kd->d', comm_attn, comm_emb)  # [in_dim]
-            graph_embs.append(graph_emb)
-
-        return torch.stack(graph_embs), all_comm_assign  # [batch_size, in_dim]
-
+        x1 = F.leaky_relu(self.conv1(x, edge_index, edge_weight=edge_weight))#self.norm(F.relu(self.conv1(x, edge_index)))
+        #x1 = F.leaky_relu(self.conv2(x1, edge_index, edge_weight=edge_weight))
+        x1 = self.norm(x1)
+        return x1
 
 class OntologyNNC(nn.Module):
     """
     PyTorch neural network model using tabular data and an ontology graph.
-    This model integrates feature data with graph propagation through GNN layers.
+    This model integrates feature data with graph propagation through a GAT layer and detects communities in the ontology through another GNN layer using node activations and attention weights from GAT layer
 
     Args:
         n_features (int): Number of input features (e.g., F1, F3, F4, F5).
@@ -150,7 +77,7 @@ class OntologyNNC(nn.Module):
         ratio=1.0,
         out_channels=1,
         heads=1,
-        num_communities=1,
+        num_communities=3,
         out_activation=None,
         task='regression',
         dropout_rate=0.3
@@ -171,13 +98,6 @@ class OntologyNNC(nn.Module):
         self.num_communities = num_communities
         self.ratio = ratio
 
-        # if selection:
-        #     self.ratio = ratio
-        #     if selection == "top":
-        #         self.selection = TopSelection(in_channels=n_nodes, ratio=ratio)
-        # else:
-        #     self.selection = None
-
 
         # Convert adjacency matrix to a non-trainable torch tensor
         adj_mat_fc1 = torch.tensor(adj_mat_fc1, dtype=torch.float).t()
@@ -186,7 +106,8 @@ class OntologyNNC(nn.Module):
         # Define the first fully connected layer (feature to node mapping)
         self.fc1 = Linear(in_features=n_features, out_features=n_nodes_annot)
 
-        self.encoder = GNNEncoder(n_prop1, 32, 32)
+        self.GNNencoder = GNNEncoder(1, 16, self.num_communities)
+        self.encoder = GATEncoder(n_prop1, 1)
 
         #Apply the mask to the weights of the first layer
         with torch.no_grad():
@@ -196,11 +117,11 @@ class OntologyNNC(nn.Module):
         self.tanh = nn.Tanh()
         self.dropout = nn.Dropout(dropout_rate)
 
-        self.attention = CommunityAwareAttention(32, self.num_communities)
-        self.classifier = nn.Linear(32, self.out_channels)
+
+        self.classifier = nn.Linear(self.n_nodes, self.out_channels)
 
 
-    def forward(self, feature_data, graph_data):
+    def forward(self, feature_data, graph_data, mask=None):
         """Runs the forward pass of the module."""
 
         #x, edge_index, batch = graph_data.x, graph_data.edge_index, graph_data.batch
@@ -211,39 +132,45 @@ class OntologyNNC(nn.Module):
 
         #Added ReLU activation after fc1 layer
         x = initial_embedding
-        #print(x.shape)
-        # x = self.relu(x)
 
         data_list = []
         for sample in x:
             # Reshape sample to (num_nodes, 1)
             sam = torch.tensor(sample, dtype=torch.float32).view(-1, 1)
             data_obj = Data(x=sam, edge_index=edge_index)
+
+            #print(data_obj.x.shape)
+            if mask is not None:
+                data_obj.x = data_obj.x * (1 - mask)
+                #print(data_obj.x.shape)
+
             data_list.append(data_obj)
 
-        #print(len(data_list))
         # # Create a DataLoader to batch the data with graphs
-        loader = torch_geometric.loader.DataLoader(data_list, batch_size=1, shuffle=False)
+        loader = torch_geometric.loader.DataLoader(data_list, batch_size=len(x), shuffle=False)
 
         pred = []
-        for data in loader:
-            x = self.encoder(data.x, data.edge_index)
-            #print(x.shape)
-            #print(x.unsqueeze(0).shape)
-            x = self.dropout(x)
-
-            # x = x.unsqueeze(0)
-            # x = x.view(x.size(0), -1)
-            #print(x.shape)
-            graph_embs, _ = self.attention(x, data.edge_index, data.batch)
-            pr = self.classifier(graph_embs) #self.classifier(x)
-            #print(pr.shape)
-            pred.append(pr)
-            # print(self.classifier(graph_embs).shape)
-
-        x = torch.stack(pred)
         #print(x.shape)
-        #print(F.softmax(x, dim=2).shape)
+        out = x.new_zeros(x.shape)
+        all_comm_assn = []
+        #print(out.shape)
+        for i, data in enumerate(loader):
+            #print(i)
+            x_enc, attn_weights = self.encoder(data.x, data.edge_index)
+            #print(x_enc.shape, attn_weights.shape, data.edge_index.shape)
+            out = x_enc.squeeze(1)
+
+            comm_assn = self.GNNencoder(x_enc, data.edge_index, edge_weight=attn_weights)
+            comm_assn = F.softmax(comm_assn, dim=-1)
+
+            # Get the number of nodes for each graph in the batch
+            batch_size = len(data_list)  # or whatever your batch size is
+            num_nodes = comm_assn.shape[0] // batch_size
+            all_comm_assn = comm_assn.reshape(batch_size, num_nodes, self.num_communities)
+
+        x = out.reshape(x.shape)
+
+        x = self.classifier(x)
 
         if self.task == 'classification':
           if self.out_channels == 1:
@@ -251,7 +178,6 @@ class OntologyNNC(nn.Module):
             x = torch.sigmoid(x)
           else:
             #x = self.relu(x)
-            x = F.softmax(x, dim=2)
+            x = F.softmax(x, dim=1), all_comm_assn#torch.stack(comm_assn_split)
 
         return x
-
