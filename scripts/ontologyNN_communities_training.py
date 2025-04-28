@@ -13,8 +13,9 @@ from torch.utils.data import DataLoader, TensorDataset
 from matplotlib import pyplot as plt
 import torch.nn as nn
 import torch.optim as optim
+from torch.nn import functional as F
 from torch_geometric.data import Data, Batch
-from ontologyNN_communities import OntologyNNC
+from communityDetectionFramework import OntologyNNC
 import datetime
 import matplotlib
 import warnings
@@ -23,284 +24,17 @@ warnings.filterwarnings('ignore')
 
 # Argument parser
 def parse_args():
-    parser = argparse.ArgumentParser(description="Train a model using ontology-based modeling")
+    parser = argparse.ArgumentParser(description="Train a GNN model using ontology-based modeling with important community detection")
     parser.add_argument("--dataset", type=str, required=True, help="Path to the dataset directory")
     parser.add_argument("--n_communities", type=int, required=True, help="number of communities")
     #parser.add_argument("--ontology_graph", type=str, required=False, help="Path to the ontology graph (pickle)")
     parser.add_argument("--epochs", type=int, required=True, help="Number of training epochs")
 
     parser.add_argument("--save", type=bool, default=False, 
-                        help="save the model checkpoint") 
+                        help="save the model checkpoint")                    
 
-def get_communities(model, feature_data, graph, trained=False, device='cpu'):
-
-    if not trained:
-        model.eval()
-        with torch.no_grad():
-            feature_data = feature_data.to(device)
-
-    feature_data = feature_data.to(device)
-    edge_index, batch = graph.edge_index, graph.batch
-
-    initial_embedding = model.fc1(feature_data)
-
-    #Added ReLU activation after fc1 layer
-    x = initial_embedding
-    # x = self.relu(x)
-
-    data_list = []
-    for sample in x:
-        # Reshape sample to (num_nodes, 1)
-        sam = torch.tensor(sample, dtype=torch.float32).view(-1, 1)
-        data_obj = Data(x=sam, edge_index=edge_index)
-        data_list.append(data_obj)
-
-    # # Create a DataLoader to batch the data with graphs
-    loader = torch_geometric.loader.DataLoader(data_list, batch_size=1, shuffle=False)
-
-    all_comm_assign = []
-    for data in loader:
-        x = model.encoder(data.x, data.edge_index)
-        _, comm_assign = model.attention(x, data.edge_index, data.batch)
-        all_comm_assign.append(comm_assign[0])
-
-    return all_comm_assign
-
-def compute_modularity_loss(all_comm_assign, edge_index, num_nodes):
-
-    all_mod = []
-    for comm_assign in all_comm_assign:
-        # Convert soft assignments to hard-ish (optional)
-        comm_assign = F.softmax(comm_assign, dim=-1)
-
-        # Compute modularity matrix terms
-        row, col = edge_index
-        deg = torch.sparse_coo_tensor(edge_index, torch.ones_like(row), (num_nodes, num_nodes)).sum(dim=1).to_dense()
-        m = edge_index.size(1) // 2  # Undirected edges
-        norm = 1 / (2 * m)
-
-        # Compute modularity
-        Q = 0
-        for i, j in zip(row, col):
-            Q += (1 - deg[i] * deg[j] / (2 * m)) * (comm_assign[i] * comm_assign[j]).sum()
-        Q = norm * Q
-
-        # Maximize modularity = minimize -Q
-        all_mod.append(-Q.cpu().detach().numpy())
-
-    return all_mod
-
-def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, device, model=None):
-
-    # Convert to tensors (Keep them on CPU initially)
-    feature_data_train = torch.Tensor(X_train)
-    feature_data_test = torch.Tensor(X_test)
-    y_train_tensor = torch.LongTensor(y_train)
-    y_test_tensor = torch.LongTensor(y_test)
-
-    # Batch size
-    batch_size = 32#len(X_test)
-
-    # Create datasets and data loaders for batching
-    train_dataset = TensorDataset(feature_data_train, y_train_tensor)
-    test_dataset = TensorDataset(feature_data_test, y_test_tensor)
-
-    # Ensure pin_memory=True is used only for CPU tensors
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True, pin_memory=True if device.type == 'cuda' else False)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=True, pin_memory=True if device.type == 'cuda' else False)
-
-    n_nodes = feature_map.shape[1]
-    n_nodes_emb = feature_map.shape[1]
-
-    if model is None:
-        # Create the model
-        model = OntologyNNC(
-            n_features=feature_data_train.shape[1],
-            n_nodes=n_nodes,
-            n_nodes_annot=n_nodes_emb,
-            n_nodes_emb=n_nodes_emb,
-            n_prop1=1,
-            adj_mat_fc1=feature_map,
-            propagation='GATPropagation',
-            selection='top',
-            ratio=1.0,
-            num_communities=args.n_communities,
-            out_channels=len(y_train_tensor.unique()),
-            out_activation=None,
-            task='classification',
-            dropout_rate=0.3
-        )
-        model = model.to(device)
-
-    else:
-        print("Using existing model")
-        model = model.to(device)
-
-    # model.apply(init_weights)
-
-    # Use multiple GPUs if available
-    if torch.cuda.device_count() > 1:
-        print(f"Using {torch.cuda.device_count()} GPUs!")
-        model = nn.DataParallel(model)
-
-    learning_rates = {
-    # "encoder.conv1.bias": 5e-3,   # Relatively larger gradient, keep it moderate
-    # "encoder.conv1.lin.weight": 1e-3, # Smaller gradient, increase LR slightly
-    # "attention.node_query": 1e-2,     # Very small gradient, increase LR significantly
-    # "attention.comm_query": 5e-3,     # Small gradient, increase LR
-    # "attention.community_assign.bias": 3e-3, # Small gradient, increase LR
-    "attention.community_assign.lin.weight": 1e-6, # Small gradient, increase LR
-    "attention.node_key.weight": 1e-6, # Small gradient, increase LR
-    # "attention.node_key.bias": 1e-6,   # Very small gradient, increase LR significantly
-    "attention.comm_key.weight": 1e-6, # Very small gradient, increase LR significantly
-    # "attention.comm_key.bias": 1e-6,   # Extremely small gradient, increase LR drastically (but be cautious)
-    # "classifier.weight": 2e-3,      # Moderate gradient, keep it relatively low
-    # "classifier.bias": 1e-3,        # Relatively larger gradient, keep it moderate
-    }
-
-    params = []
-    for name, param in model.named_parameters():
-        if name in learning_rates:
-            params.append({'params': [param], 'lr': learning_rates[name]})
-
-    optimizer = optim.Adam(model.parameters(), lr=0.05, weight_decay=1e-4)
-    criterion = nn.CrossEntropyLoss().to(device)
-
-    # scheduler = ReduceLROnPlateau(optimizer, 'min', patience=50, factor=0.5, verbose=True)
-
-    train_losses = []
-    test_losses = []
-    test_mod = []
-    epochs = args.epochs
-
-    for epoch in range(epochs):
-        model.train()
-        batch_train_loss = 0
-
-        mod_loss = []
-        all_communities = []
-        for feature_batch, target_batch in train_loader:
-            feature_batch = feature_batch.to(device, non_blocking=True)
-            target_batch = target_batch.to(device, non_blocking=True)
-
-            optimizer.zero_grad()
-
-            # Create batched graph data on device
-            graph_data_batch = Data(
-                x=torch.ones(n_nodes, n_nodes_emb, device=device),
-                edge_index=edge_index.to(device),
-                batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
-            )
-
-            output_batch = model(feature_batch, graph_data_batch)
-            #print(output_batch.shape)
-
-            # communities = get_communities(model, feature_batch, graph_data_batch, device=device)
-            # all_comm = [comm_assign.argmax(axis=1) for comm_assign in communities]
-            # all_communities.append(all_comm)
-            # mod_loss.append(np.mean(compute_modularity_loss(communities, edge_index, n_nodes)))
-
-            # print(communities
-            #print(np.mean(compute_modularity_loss(communities, edge_index, n_nodes)))
-            #print(len(communities), len(communities[0]))
-            #print(output_batch.squeeze(1).shape)
-            # print(target_batch)
-
-            #print(modularity_loss(comm_probs, edge_index))
-            #mod_loss = modularity_loss(comm_probs, edge_index)
-
-            loss = criterion(output_batch.squeeze(1), target_batch)# + mod_loss
-            loss.backward()
-            optimizer.step()
-
-            batch_train_loss += loss.item()
-
-        train_losses.append(batch_train_loss / len(train_loader))
-
-        #print(all_communities)
-        #print(np.mean(mod_loss))
-
-        # Evaluate on test set
-        model.eval()
-        batch_test_loss = 0
-
-        with torch.no_grad():
-            for feature_batch, target_batch in test_loader:
-                feature_batch, target_batch = feature_batch.to(device, non_blocking=True), target_batch.to(device, non_blocking=True)
-                graph_data_batch = Data(
-                    x=torch.ones(n_nodes, n_nodes_emb, device=device),
-                    edge_index=edge_index.to(device),
-                    batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
-                )
-                output_batch = model(feature_batch, graph_data_batch)
-
-                # mod_loss = modularity_loss(comm_probs, edge_index)
-                # test_mod.append(mod_loss.item())
-                #print(mod_loss)
-
-                loss = criterion(output_batch.squeeze(1), target_batch)# + mod_loss
-                batch_test_loss += loss.item()
-
-        test_losses.append(batch_test_loss / len(test_loader))
-        #scheduler.step(batch_test_loss / len(test_loader))
-
-        if (epoch + 1) % 10 == 0:
-            print(f'Epoch [{epoch+1}/{epochs}], Train Loss: {train_losses[-1]:.4f}, Test Loss: {test_losses[-1]:.4f}', 'Modularity: ', np.mean(mod_loss))
-    #print(np.mean(test_mod))
-    # Plot losses and save figure
-    plt.figure()
-    plt.plot(train_losses, label="Train Loss")
-    plt.plot(test_losses, label="Test Loss")
-    plt.legend()
-    plt.savefig("loss_plot.png")
-
-    return model, feature_data_train, y_train_tensor, feature_data_test, y_test_tensor, graph_data_batch
-
-def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
-    model.eval()
-    with torch.no_grad():
-        # Move data to device
-        X_train = X_train.to(device)
-        graph_data_batch = graph_data_batch.to(device)
-
-        # Forward pass to get predictions
-        train_predictions = model(X_train, graph_data_batch)
-        train_predicted_labels = torch.argmax(train_predictions, dim=2).squeeze(0)  # (num_nodes,)
-
-        # Get community assignments
-        communities = get_communities(model, X_train, graph_data_batch, device=device)
-        communities = [comm_assign.argmax(axis=1) for comm_assign in communities]
-        #print(communities)
-
-        # Print label and community per node
-        for i in range(len(train_predicted_labels)):
-            label = train_predicted_labels[i]#.item()
-            comm = communities[i]#.item()
-            print(f"Sample {i}: Predicted Label = {label}, Community = {comm}")
-
-def evaluate_model(model, X_train, y_train, X_test, y_test, graph_data_batch, device):
-    model.eval()
-    with torch.no_grad():
-        # Move input data to the same device as the model
-        X_train = X_train.to(device)
-        X_test = X_test.to(device)
-        graph_data_batch = graph_data_batch.to(device)
-
-        # Forward pass
-        train_predictions = model(X_train, graph_data_batch)
-        #print(train_predictions.shape)
-        train_predicted_labels = torch.argmax(train_predictions, dim=2)
-        #print(train_predictions.shape)
-        train_accuracy = accuracy_score(y_train.cpu(), train_predicted_labels.squeeze(0).cpu())
-
-        test_predictions = model(X_test, graph_data_batch)
-        test_predicted_labels = torch.argmax(test_predictions, dim=2)
-        test_accuracy = accuracy_score(y_test.cpu(), test_predicted_labels.squeeze(0).cpu())
-
-    print(f"Train Accuracy: {train_accuracy:.4f}")
-    print(f"Test Accuracy: {test_accuracy:.4f}")
+    return parser.parse_args()
     
-
 def load_data(dataset_path, device, ontology_graph=None):
 
     #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -426,6 +160,394 @@ def load_data(dataset_path, device, ontology_graph=None):
     except Exception as e:
         raise Exception(f"An unexpected error occurred: {str(e)}")
 
+def get_communities(model, feature_data, graph, device='cpu'):
+
+    feature_data = feature_data.to(device)
+    edge_index, batch = graph.edge_index, graph.batch
+
+    initial_embedding = model.fc1(feature_data)
+
+    #Added ReLU activation after fc1 layer
+    x = initial_embedding
+    # x = self.relu(x)
+
+    data_list = []
+    for sample in x:
+        # Reshape sample to (num_nodes, 1)
+        sam = torch.tensor(sample, dtype=torch.float32).view(-1, 1)
+        data_obj = Data(x=sam, edge_index=edge_index)
+        data_list.append(data_obj)
+
+    # # Create a DataLoader to batch the data with graphs
+    loader = torch_geometric.loader.DataLoader(data_list, batch_size=1, shuffle=False)
+
+    all_comm_assign = []
+    for data in loader:
+        x = model.encoder(data.x, data.edge_index)
+        _, comm_assign = model.attention(x, data.edge_index, data.batch)
+        all_comm_assign.append(comm_assign[0])
+
+    return all_comm_assign
+
+
+def compute_modularity_loss_fast(all_comm_assign, edge_index, num_nodes):
+    # Precompute reusable terms
+    row, col = edge_index
+    m = edge_index.size(1) // 2  # Undirected edges
+    norm = 1 / (2 * m)
+
+    # Compute degrees (vectorized)
+    deg = torch.zeros(num_nodes, device=edge_index.device)
+    deg.scatter_add_(0, row, torch.ones_like(row, dtype=torch.float32))
+
+    # Precompute deg[i] * deg[j] / (2m) for all edges
+    deg_prod = deg[row] * deg[col] / (2 * m)
+
+    # Process all community assignments in parallel
+    all_mod = []
+    for comm_assign in all_comm_assign:
+        comm_assign = F.softmax(comm_assign, dim=-1)  # Soft assignments
+
+        # Vectorized computation of (comm_assign[i] * comm_assign[j]).sum() for all edges
+        pairwise_prods = (comm_assign[row] * comm_assign[col]).sum(dim=1)
+
+        # Compute Q in one go (vectorized)
+        Q = norm * ((1 - deg_prod) * pairwise_prods).sum()
+
+        # Maximize modularity = minimize -Q
+        all_mod.append(-Q)
+
+    return torch.stack(all_mod)
+    
+def compute_community_importance(
+    model,
+    X_test,
+    y_test,
+    graph_data_batch,
+    criterion,
+    device,
+    num_communities
+):
+
+    model.eval()
+    community_importance = torch.zeros(num_communities, device=device)
+    counts = torch.zeros(num_communities, device=device)
+
+    with torch.no_grad():
+        X_test = X_test#.to(device)
+        y_test = y_test#.to(device)
+        graph_data_batch = graph_data_batch.to(device)
+
+        test_dataset = TensorDataset(X_test, y_test)
+
+        test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, drop_last=True, pin_memory=True if device.type == 'cuda' else False)
+
+        for i, (feature_batch, target_batch) in enumerate(test_loader):
+            feature_batch = feature_batch.to(device, non_blocking=True)
+            target_batch = target_batch.to(device, non_blocking=True)
+
+            # # Create batched graph data on device
+            # graph_data_batch = Data(
+            #     x=torch.ones(n_nodes, n_nodes_emb, device=device),
+            #     edge_index=edge_index.to(device),
+            #     batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
+            # )
+
+            output_batch, communities = model(feature_batch, graph_data_batch)
+            original_loss = criterion(output_batch.squeeze(1),target_batch)
+            print('sample', i)
+            print('original loss:', original_loss)
+
+            targets = target_batch
+
+            # Iterate over communities
+            for comm_idx in range(num_communities):
+                # Create mask: 1 if node's dominant community is comm_idx
+                comm_mask = (communities.argmax(dim=-1) == comm_idx).float()  # (B, N)
+
+                # Mask node features in the graph
+                # masked_graph = graph.clone()
+                # Expand mask to match feature dimensions
+                mask_expanded = comm_mask.reshape(-1, 1)#.unsqueeze(-1)  # (B, N, 1)
+
+                if mask_expanded.sum() > 0:
+                    # Compute loss with masked nodes
+                    masked_outputs, _ = model(feature_batch, graph_data_batch, mask=mask_expanded)
+                    masked_loss = criterion(masked_outputs.squeeze(1), targets)
+                    print('community:', comm_idx, 'number of nodes', mask_expanded.sum(), 'loss increase per node:', (masked_loss-original_loss)/mask_expanded.sum())
+                    community_importance[comm_idx] += (masked_loss-original_loss)/mask_expanded.sum()
+                    counts[comm_idx] += 1
+
+                else:
+                    continue
+    print(community_importance)
+
+def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, device, model=None):
+
+    # Convert to tensors (Keep them on CPU initially)
+    feature_data_train = torch.Tensor(X_train)
+    feature_data_test = torch.Tensor(X_test)
+    y_train_tensor = torch.LongTensor(y_train)
+    y_test_tensor = torch.LongTensor(y_test)
+
+    # Batch size
+    batch_size = len(X_test)
+
+    # Create datasets and data loaders for batching
+    train_dataset = TensorDataset(feature_data_train, y_train_tensor)
+    test_dataset = TensorDataset(feature_data_test, y_test_tensor)
+
+    # Ensure pin_memory=True is used only for CPU tensors
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True, pin_memory=True if device.type == 'cuda' else False)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=True, pin_memory=True if device.type == 'cuda' else False)
+
+    n_nodes = feature_map.shape[1]
+    n_nodes_emb = feature_map.shape[1]
+
+    if model is None:
+        # Create the model
+        model = OntologyNNC(
+            n_features=feature_data_train.shape[1],
+            n_nodes=n_nodes,
+            n_nodes_annot=n_nodes_emb,
+            n_nodes_emb=n_nodes_emb,
+            n_prop1=1,
+            adj_mat_fc1=feature_map,
+            propagation='GATPropagation',
+            selection='top',
+            ratio=1.0,
+            num_communities=args.n_communities,
+            out_channels=len(y_train_tensor.unique()),
+            out_activation=None,
+            task='classification',
+            dropout_rate=0.3
+        )
+        model = model.to(device)
+
+    else:
+        print("Using existing model")
+        model = model.to(device)
+
+    # model.apply(init_weights)
+
+    # Use multiple GPUs if available
+    if torch.cuda.device_count() > 1:
+        print(f"Using {torch.cuda.device_count()} GPUs!")
+        model = nn.DataParallel(model)
+
+    learning_rates = {
+      "GNNencoder.conv1.bias": 1e-06,
+      "GNNencoder.conv1.lin.weight": 1e-06,
+      # "GNNencoder.conv2.bias": 1e-06,
+      # "GNNencoder.conv2.lin.weight": 1e-06,
+      "GNNencoder.norm.weight": 1e-04,
+      "GNNencoder.norm.bias": 1e-04
+    }
+
+    params = []
+    for name, param in model.named_parameters():
+        if name in learning_rates:
+            params.append({'params': [param], 'lr': learning_rates[name]})
+        else:
+            params.append({'params': [param], 'lr': 0.005}) # Default learning rate
+
+    optimizer = optim.Adam(params, weight_decay=1e-4)
+    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+    criterion = nn.CrossEntropyLoss().to(device)
+
+    # scheduler = ReduceLROnPlateau(optimizer, 'min', patience=50, factor=0.5, verbose=True)
+
+    train_losses = []
+    test_losses = []
+    test_mod = []
+    modularities = []
+    epochs = args.epochs
+
+    for epoch in range(epochs):
+        model.train()
+        batch_train_loss = 0
+
+        mod_loss = []
+        all_communities = []
+        for feature_batch, target_batch in train_loader:
+            feature_batch = feature_batch.to(device, non_blocking=True)
+            target_batch = target_batch.to(device, non_blocking=True)
+
+            optimizer.zero_grad()
+
+            # Create batched graph data on device
+            graph_data_batch = Data(
+                x=torch.ones(n_nodes, n_nodes_emb, device=device),
+                edge_index=edge_index.to(device),
+                batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
+            )
+
+            output_batch, communities = model(feature_batch, graph_data_batch)
+
+            modularity = torch.mean(compute_modularity_loss_fast(communities, edge_index, n_nodes))
+            loss = criterion(output_batch.squeeze(1), target_batch) + 1.0*modularity
+
+            loss.backward()
+            optimizer.step()
+
+            mod_loss.append(modularity.cpu().detach().numpy())
+            batch_train_loss += loss.item()
+
+        train_losses.append(batch_train_loss / len(train_loader))
+
+
+        # Evaluate on test set
+        model.eval()
+        batch_test_loss = 0
+
+        with torch.no_grad():
+            for feature_batch, target_batch in test_loader:
+                feature_batch, target_batch = feature_batch.to(device, non_blocking=True), target_batch.to(device, non_blocking=True)
+                graph_data_batch = Data(
+                    x=torch.ones(n_nodes, n_nodes_emb, device=device),
+                    edge_index=edge_index.to(device),
+                    batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
+                )
+                output_batch, communities = model(feature_batch, graph_data_batch)
+
+
+                loss = criterion(output_batch.squeeze(1), target_batch)# + mod_loss
+                batch_test_loss += loss.item()
+
+        test_losses.append(batch_test_loss / len(test_loader))
+        #scheduler.step(batch_test_loss / len(test_loader))
+
+        if (epoch + 1) % 10 == 0:
+            print(f'Epoch [{epoch+1}/{epochs}], Train Loss: {train_losses[-1]:.4f}, Test Loss: {test_losses[-1]:.4f}', 'Modularity: ', np.mean(mod_loss))
+        modularities.append(-np.mean(mod_loss))
+
+    # Plot losses and save figure
+    plt.figure()
+    ax1 = plt.gca()
+    ax1.plot(train_losses, label="Train Loss", color='tab:blue')
+    ax1.plot(test_losses, label="Test Loss", color='tab:orange')
+    ax1.set_xlabel("Epoch")
+    ax1.set_ylabel("Loss", color='tab:blue')
+    ax1.tick_params(axis='y', labelcolor='tab:blue')
+
+    # Create second y-axis for modularity
+    ax2 = ax1.twinx()
+    ax2.plot(modularities, label="Modularity", color='tab:green')
+    ax2.set_ylabel("Modularity", color='tab:green')
+    ax2.tick_params(axis='y', labelcolor='tab:green')
+
+    # Title and legend
+    plt.title("Train/Test Loss and Modularity Over Epochs")
+    fig = plt.gcf()
+    fig.tight_layout()
+    plt.savefig("loss_modularity_plot.png")
+    plt.show()
+
+    return model, feature_data_train, y_train_tensor, feature_data_test, y_test_tensor, graph_data_batch
+    
+def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
+    model.eval()
+    with torch.no_grad():
+        # Move data to device
+        X_train = X_train.to(device)
+        graph_data_batch = graph_data_batch.to(device)
+
+        # Forward pass to get predictions
+        train_predictions, communities = model(X_train, graph_data_batch)
+        train_predicted_labels = torch.argmax(train_predictions, dim=1).squeeze(0)  # (num_nodes,)
+
+        # Get community assignments
+        communities = [comm_assign.argmax(axis=1) for comm_assign in communities]
+
+        # Get edge indices from the graph data
+        edge_index = graph_data_batch.edge_index
+        
+        # Print label and community per node
+        for i in range(len(train_predicted_labels)):
+            label = train_predicted_labels[i]
+            actual_label = y_train[i]
+            comm = communities[i]
+            print(f"Sample {i}: Predicted Label = {label}, Actual Label = {actual_label}, Node Community assignments = {comm}, Unique communities = {torch.unique(comm)}")
+
+            # Count number of nodes in each community
+            comm_counts = torch.bincount(comm)
+            for comm_id, count in enumerate(comm_counts):
+                print(f"    Community {comm_id}: {count.item()} nodes")
+
+            # Count number of edges within each community and between communities
+            num_communities = len(comm_counts)
+            intra_edges = torch.zeros(num_communities, dtype=torch.long, device=device)
+            inter_edges = torch.zeros((num_communities, num_communities), dtype=torch.long, device=device)
+            
+            # Iterate through all edges
+            for edge_idx in range(edge_index.shape[1]):
+                src = edge_index[0, edge_idx]
+                dst = edge_index[1, edge_idx]
+                src_comm = comm[src]
+                dst_comm = comm[dst]
+                
+                if src_comm == dst_comm:
+                    intra_edges[src_comm] += 1
+                else:
+                    inter_edges[src_comm, dst_comm] += 1
+            
+            # Print intra-community edges
+            print("\nIntra-community edges:")
+            for comm_id in range(num_communities):
+                print(f"    Community {comm_id}: {intra_edges[comm_id].item()} edges")
+            
+            # Print inter-community edges
+            print("\nInter-community edges:")
+            for src_comm in range(num_communities):
+                for dst_comm in range(num_communities):
+                    if src_comm != dst_comm and inter_edges[src_comm, dst_comm] > 0:
+                        print(f"    Community {src_comm} <-> {dst_comm}: {inter_edges[src_comm, dst_comm].item()} edges")
+
+# def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
+#     model.eval()
+#     with torch.no_grad():
+#         # Move data to device
+#         X_train = X_train.to(device)
+#         graph_data_batch = graph_data_batch.to(device)
+
+#         # Forward pass to get predictions
+#         train_predictions, communities = model(X_train, graph_data_batch)
+#         train_predicted_labels = torch.argmax(train_predictions, dim=1).squeeze(0)  # (num_nodes,)
+
+#         communities = [comm_assign.argmax(axis=1) for comm_assign in communities]
+
+#         # Print label and community per node
+#         for i in range(len(train_predicted_labels)):
+#             label = train_predicted_labels[i]#.item()
+#             comm = communities[i]#.item()
+#             print(f"Sample {i}: Predicted Label = {label}, Community = {comm}, Unique = {torch.unique(comm)}")
+
+#             # Count number of nodes in each community
+#             comm_counts = torch.bincount(comm)
+#             for comm_id, count in enumerate(comm_counts):
+#                 print(f"    Community {comm_id}: {count.item()} nodes")
+
+
+def evaluate_model(model, X_train, y_train, X_test, y_test, graph_data_batch, device):
+    model.eval()
+    with torch.no_grad():
+        # Move input data to the same device as the model
+        X_train = X_train.to(device)
+        X_test = X_test.to(device)
+        graph_data_batch = graph_data_batch.to(device)
+
+        # Forward pass
+        train_predictions, _ = model(X_train, graph_data_batch)
+        train_predicted_labels = torch.argmax(train_predictions, dim=1)
+        train_accuracy = accuracy_score(y_train.cpu(), train_predicted_labels.squeeze(0).cpu())
+
+        test_predictions, _ = model(X_test, graph_data_batch)
+        test_predicted_labels = torch.argmax(test_predictions, dim=1)
+        test_accuracy = accuracy_score(y_test.cpu(), test_predicted_labels.squeeze(0).cpu())
+
+    print(f"Train Accuracy: {train_accuracy:.4f}")
+    print(f"Test Accuracy: {test_accuracy:.4f}")
+    
 
 if __name__ == "__main__":
     args = parse_args()
@@ -438,10 +560,26 @@ if __name__ == "__main__":
     print(device)
     
     X_train, X_test, y_train, y_test, feature_map, edge_index, ontology_node_list = load_data(args.dataset, device=device)
-    # X_train, X_test, y_train, y_test, feature_map, edge_index, ontology_node_list = load_data(args.dataset)
+    
+    X_train = X_train[:1000]
+    X_test = X_test[:200]
+    y_train = y_train[:1000]
+    y_test = y_test[:200]
+    
     model, X_train, y_train, X_test, y_test, graph_data_batch = train_model(X_train, X_test, y_train, y_test
             , feature_map, edge_index, device)
     
     evaluate_model(model, X_train, y_train, X_test, y_test, graph_data_batch, device)
     
-    get_trained_communities(model, X_train, y_train, graph_data_batch, device)
+    for name, param in model.named_parameters():
+        if param.grad is not None:
+            print(f"{name}: {param.grad.abs().mean()}")
+        else:
+            print(f"{name}: No gradient")
+    
+    get_trained_communities(model, X_test, y_test, graph_data_batch, device)
+    
+    criterion = nn.CrossEntropyLoss()
+
+    compute_community_importance(model, X_test, y_test, graph_data_batch, criterion, device, args.n_communities)
+    
