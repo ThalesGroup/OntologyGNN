@@ -1,5 +1,6 @@
 data/
 files/
+script/TCGA_data/
 .ipynb_checkpoints/
 scripts/__pycache__/
 log/
