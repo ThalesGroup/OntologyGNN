@@ -12,13 +12,16 @@ from owlready2 import *
 import json
 import argparse
 
+
+DEBUG=True
+
 class OntologyDataLoader:
     def __init__(self, filepath):
         """Initialize the OntologyProcessor class and load the ontology."""
         self.ontology = self.load_ontology(filepath)
 
     @staticmethod
-    def load_ontology(filepath):
+    def load_ontology(filepath, complete=True):
         """Loads an ontology file using either owlready2 or obonet based on the file extension.
 
         Args:
@@ -34,9 +37,24 @@ class OntologyDataLoader:
                 for cls in onto.classes():
                     G.add_node(cls.name, shape="ellipse", style="filled", fillcolor="lightblue")
                     for sub_cls in cls.subclasses():
-                        G.add_node(sub_cls.name, shape="ellipse", style="filled", fillcolor="lightgreen")
+                        G.add_node(sub_cls.name, shape="ellipse", style="filled", fillcolor="ligthblue")
                         G.add_edge(sub_cls.name, cls.name, label="is-a", color="blue")
+
+                    if complete:
+                    #If we want to load the complete ontology (i.e. instances of classes and associations)
+                        for i in cls.instances():
+                            #add the individuals :
+                            G.add_node(i.name, shape="ellipse", style="filled", fillcolor="lightgreen")
+                            G.add_edge(i.name, cls.name, label="instance", color="green")
+                            #add the properties :
+                            for prop in i.get_properties():
+                                for value in prop[i]:
+                                    G.add_node(value, shape="ellipse", style="filled", fillcolor="lightgred")
+                                    G.add_edge(value, i.name, label=prop.python_name, color="red")
+                                   
                 print('loaded', filepath, 'successfully')
+                if DEBUG:
+                    print(G)
                 return G
             except Exception as e:
                 print(f"Error loading ontology with owlready2: {e}")
@@ -52,6 +70,9 @@ class OntologyDataLoader:
         else:
             print(f"Unsupported file extension for ontology file: {filepath}")
             return None
+
+
+
 
     def add_edge(self, parent_node, child_node, label=None):
         if self.ontology.has_edge(parent_node, child_node):
