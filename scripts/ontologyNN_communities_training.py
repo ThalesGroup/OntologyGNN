@@ -15,7 +15,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.nn import functional as F
 from torch_geometric.data import Data, Batch
-from communityDetectionFramework import OntologyNNC
+from ontologyNN_communities import OntologyCommunityDetection
 import datetime
 import matplotlib
 import warnings
@@ -30,11 +30,11 @@ def parse_args():
     #parser.add_argument("--ontology_graph", type=str, required=False, help="Path to the ontology graph (pickle)")
     parser.add_argument("--epochs", type=int, required=True, help="Number of training epochs")
 
-    parser.add_argument("--save", type=bool, default=False, 
-                        help="save the model checkpoint")                    
+    parser.add_argument("--save", type=bool, default=False,
+                        help="save the model checkpoint")
 
     return parser.parse_args()
-    
+
 def load_data(dataset_path, device, ontology_graph=None):
 
     #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -53,7 +53,7 @@ def load_data(dataset_path, device, ontology_graph=None):
 
             # If ontology graph is provided, load and process it
             #if ontology_graph:
-            graph_path = os.path.join(dataset_path, 'tcga_graph.pickle')#ontology_graph#'/beegfs/home/u1257/ontologyNN/TCGA_data/TGCA_graph.pickle'
+            graph_path = os.path.join(dataset_path, 'tcga_graph.pickle')
 
             # Check if the graph file exists
             try:
@@ -189,7 +189,7 @@ def get_communities(model, feature_data, graph, device='cpu'):
 
     return all_comm_assign
 
-
+# function to compute modularity loss (for detected communities)
 def compute_modularity_loss_fast(all_comm_assign, edge_index, num_nodes):
     # Precompute reusable terms
     row, col = edge_index
@@ -218,7 +218,8 @@ def compute_modularity_loss_fast(all_comm_assign, edge_index, num_nodes):
         all_mod.append(-Q)
 
     return torch.stack(all_mod)
-    
+
+# function to compute importance of communities by masking each community and checking change in prediction loss for datapoints
 def compute_community_importance(
     model,
     X_test,
@@ -246,13 +247,6 @@ def compute_community_importance(
             feature_batch = feature_batch.to(device, non_blocking=True)
             target_batch = target_batch.to(device, non_blocking=True)
 
-            # # Create batched graph data on device
-            # graph_data_batch = Data(
-            #     x=torch.ones(n_nodes, n_nodes_emb, device=device),
-            #     edge_index=edge_index.to(device),
-            #     batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
-            # )
-
             output_batch, communities = model(feature_batch, graph_data_batch)
             original_loss = criterion(output_batch.squeeze(1),target_batch)
             print('sample', i)
@@ -265,9 +259,6 @@ def compute_community_importance(
                 # Create mask: 1 if node's dominant community is comm_idx
                 comm_mask = (communities.argmax(dim=-1) == comm_idx).float()  # (B, N)
 
-                # Mask node features in the graph
-                # masked_graph = graph.clone()
-                # Expand mask to match feature dimensions
                 mask_expanded = comm_mask.reshape(-1, 1)#.unsqueeze(-1)  # (B, N, 1)
 
                 if mask_expanded.sum() > 0:
@@ -280,8 +271,9 @@ def compute_community_importance(
 
                 else:
                     continue
-    print(community_importance)
+    return community_importance
 
+# training function main
 def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, device, model=None):
 
     # Convert to tensors (Keep them on CPU initially)
@@ -291,7 +283,7 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
     y_test_tensor = torch.LongTensor(y_test)
 
     # Batch size
-    batch_size = len(X_test)
+    batch_size = 16#len(X_test)
 
     # Create datasets and data loaders for batching
     train_dataset = TensorDataset(feature_data_train, y_train_tensor)
@@ -302,23 +294,16 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=True, pin_memory=True if device.type == 'cuda' else False)
 
     n_nodes = feature_map.shape[1]
-    n_nodes_emb = feature_map.shape[1]
 
     if model is None:
         # Create the model
-        model = OntologyNNC(
+        model = OntologyCommunityDetection(
             n_features=feature_data_train.shape[1],
             n_nodes=n_nodes,
-            n_nodes_annot=n_nodes_emb,
-            n_nodes_emb=n_nodes_emb,
-            n_prop1=1,
-            adj_mat_fc1=feature_map,
-            propagation='GATPropagation',
-            selection='top',
-            ratio=1.0,
-            num_communities=args.n_communities,
+            node_embedding_dim=1,
+            feature_node_map=feature_map,
+            num_communities=3,
             out_channels=len(y_train_tensor.unique()),
-            out_activation=None,
             task='classification',
             dropout_rate=0.3
         )
@@ -335,13 +320,12 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
         print(f"Using {torch.cuda.device_count()} GPUs!")
         model = nn.DataParallel(model)
 
+    # assign different learning rates for different model layers
     learning_rates = {
-      "GNNencoder.conv1.bias": 1e-06,
-      "GNNencoder.conv1.lin.weight": 1e-06,
-      # "GNNencoder.conv2.bias": 1e-06,
-      # "GNNencoder.conv2.lin.weight": 1e-06,
-      "GNNencoder.norm.weight": 1e-04,
-      "GNNencoder.norm.bias": 1e-04
+      "CommunityDetection.conv1.bias": 1e-06,
+      "CommunityDetection.conv1.lin.weight": 1e-06,
+      "CommunityDetection.norm.weight": 1e-04,
+      "CommunityDetection.norm.bias": 1e-04
     }
 
     params = []
@@ -361,7 +345,7 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
     test_losses = []
     test_mod = []
     modularities = []
-    epochs = args.epochs
+    epochs = 300
 
     for epoch in range(epochs):
         model.train()
@@ -377,7 +361,7 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
 
             # Create batched graph data on device
             graph_data_batch = Data(
-                x=torch.ones(n_nodes, n_nodes_emb, device=device),
+                x=torch.ones(n_nodes, n_nodes, device=device),
                 edge_index=edge_index.to(device),
                 batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
             )
@@ -404,7 +388,7 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
             for feature_batch, target_batch in test_loader:
                 feature_batch, target_batch = feature_batch.to(device, non_blocking=True), target_batch.to(device, non_blocking=True)
                 graph_data_batch = Data(
-                    x=torch.ones(n_nodes, n_nodes_emb, device=device),
+                    x=torch.ones(n_nodes, n_nodes, device=device),
                     edge_index=edge_index.to(device),
                     batch=torch.zeros(n_nodes, dtype=torch.int64, device=device)
                 )
@@ -418,7 +402,7 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
         #scheduler.step(batch_test_loss / len(test_loader))
 
         if (epoch + 1) % 10 == 0:
-            print(f'Epoch [{epoch+1}/{epochs}], Train Loss: {train_losses[-1]:.4f}, Test Loss: {test_losses[-1]:.4f}', 'Modularity: ', np.mean(mod_loss))
+            print(f'Epoch [{epoch+1}/{epochs}], Train Loss: {train_losses[-1]:.4f}, Test Loss: {test_losses[-1]:.4f}', 'Modularity: ', -np.mean(mod_loss))
         modularities.append(-np.mean(mod_loss))
 
     # Plot losses and save figure
@@ -428,12 +412,14 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
     ax1.plot(test_losses, label="Test Loss", color='tab:orange')
     ax1.set_xlabel("Epoch")
     ax1.set_ylabel("Loss", color='tab:blue')
+    ax1.legend()
     ax1.tick_params(axis='y', labelcolor='tab:blue')
 
     # Create second y-axis for modularity
     ax2 = ax1.twinx()
     ax2.plot(modularities, label="Modularity", color='tab:green')
     ax2.set_ylabel("Modularity", color='tab:green')
+    ax2.legend()
     ax2.tick_params(axis='y', labelcolor='tab:green')
 
     # Title and legend
@@ -443,8 +429,9 @@ def train_model(X_train, X_test, y_train, y_test, feature_map, edge_index, devic
     plt.savefig("loss_modularity_plot.png")
     plt.show()
 
-    return model, feature_data_train, y_train_tensor, feature_data_test, y_test_tensor, graph_data_batch
-    
+    return model, feature_data_train, y_train_tensor, feature_data_test, y_test_tensor, graph_data_batch, test_losses, modularities
+
+# function to get detected communities for all individual datapoints
 def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
     model.eval()
     with torch.no_grad():
@@ -455,13 +442,18 @@ def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
         # Forward pass to get predictions
         train_predictions, communities = model(X_train, graph_data_batch)
         train_predicted_labels = torch.argmax(train_predictions, dim=1).squeeze(0)  # (num_nodes,)
-
         # Get community assignments
         communities = [comm_assign.argmax(axis=1) for comm_assign in communities]
+        
+
+        node_names = list(ontology_node_list)
+        num_nodes = len(node_names)
+        num_communities = 3#communities[0].max().item() + 1  # Assuming fixed number across samples
+        community_counts = torch.zeros((num_nodes, num_communities), dtype=torch.int)
 
         # Get edge indices from the graph data
         edge_index = graph_data_batch.edge_index
-        
+
         # Print label and community per node
         for i in range(len(train_predicted_labels)):
             label = train_predicted_labels[i]
@@ -474,28 +466,32 @@ def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
             for comm_id, count in enumerate(comm_counts):
                 print(f"    Community {comm_id}: {count.item()} nodes")
 
+            # Count community assignments per node
+            for node_id in range(num_nodes):
+                community_counts[node_id, comm[node_id]] += 1
+
             # Count number of edges within each community and between communities
             num_communities = len(comm_counts)
             intra_edges = torch.zeros(num_communities, dtype=torch.long, device=device)
             inter_edges = torch.zeros((num_communities, num_communities), dtype=torch.long, device=device)
-            
+
             # Iterate through all edges
             for edge_idx in range(edge_index.shape[1]):
                 src = edge_index[0, edge_idx]
                 dst = edge_index[1, edge_idx]
                 src_comm = comm[src]
                 dst_comm = comm[dst]
-                
+
                 if src_comm == dst_comm:
                     intra_edges[src_comm] += 1
                 else:
                     inter_edges[src_comm, dst_comm] += 1
-            
+
             # Print intra-community edges
             print("\nIntra-community edges:")
             for comm_id in range(num_communities):
                 print(f"    Community {comm_id}: {intra_edges[comm_id].item()} edges")
-            
+
             # Print inter-community edges
             print("\nInter-community edges:")
             for src_comm in range(num_communities):
@@ -503,31 +499,17 @@ def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
                     if src_comm != dst_comm and inter_edges[src_comm, dst_comm] > 0:
                         print(f"    Community {src_comm} <-> {dst_comm}: {inter_edges[src_comm, dst_comm].item()} edges")
 
-# def get_trained_communities(model, X_train, y_train, graph_data_batch, device):
-#     model.eval()
-#     with torch.no_grad():
-#         # Move data to device
-#         X_train = X_train.to(device)
-#         graph_data_batch = graph_data_batch.to(device)
+        # Plotting node-community assignment matrix
+        plt.figure(figsize=(10, 6))
+        sns.heatmap(community_counts.numpy(), annot=True, fmt="d", cmap="YlGnBu",
+                    xticklabels=[f"C{i}" for i in range(num_communities)], yticklabels=node_names)
+        plt.xlabel("Community")
+        plt.ylabel("Node")
+        plt.title("Node-to-Community Assignment Frequency")
+        plt.tight_layout()
+        plt.show()
 
-#         # Forward pass to get predictions
-#         train_predictions, communities = model(X_train, graph_data_batch)
-#         train_predicted_labels = torch.argmax(train_predictions, dim=1).squeeze(0)  # (num_nodes,)
-
-#         communities = [comm_assign.argmax(axis=1) for comm_assign in communities]
-
-#         # Print label and community per node
-#         for i in range(len(train_predicted_labels)):
-#             label = train_predicted_labels[i]#.item()
-#             comm = communities[i]#.item()
-#             print(f"Sample {i}: Predicted Label = {label}, Community = {comm}, Unique = {torch.unique(comm)}")
-
-#             # Count number of nodes in each community
-#             comm_counts = torch.bincount(comm)
-#             for comm_id, count in enumerate(comm_counts):
-#                 print(f"    Community {comm_id}: {count.item()} nodes")
-
-
+# function to compute target classification loss
 def evaluate_model(model, X_train, y_train, X_test, y_test, graph_data_batch, device):
     model.eval()
     with torch.no_grad():
