@@ -23,7 +23,7 @@ import yaml
 # Argument parser
 def parse_args():
     parser = argparse.ArgumentParser(description="Train a GNN model using ontology-based modeling with detection of important communities withing the ontology")
-    parser.add_argument("--dataset", type=str, required=True, help="Path to the dataset directory")
+    parser.add_argument("--dataset", type=str, required=False, help="Path to the dataset directory")
     parser.add_argument("--n_communities", type=int, default=3, help="number of communities")
     parser.add_argument("--lambda_param", type=float, default=1.0, help="loss weighting between prediction and community metric (modularity)")
     parser.add_argument("--ontology_file", type=str, default='titanic_with_cabins.ttl', help="Path to the ontology file (ttl, rdf, owl)")
@@ -63,8 +63,6 @@ def override_config(config, args):
         config["hyperparams"]["num_communities"] = args.n_communities
     if args.lambda_param is not None:
         config["hyperparams"]["lambda"] = args.lambda_param
-    if args.dropout is not None:
-        config["model"]["dropout"] = args.dropout
     if args.save is not None:
         config["experiment"]["save"] = args.save
  
