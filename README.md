@@ -74,20 +74,6 @@ python3 main.py --dataset data/TCGA --n_communities 3 --epochs 100 --n_samples 1
 sbatch train_job.slurm
 ```
 
-### Output
-
-Output are logged in the log file (specified in config.yaml) in the form of:
-
--- Training/Test losses (prediction+modularity loss for train set, prediction loss for test set)
-
--- Model performance (Prediction accuracy for train/test set)
-
--- Community Importance (calculated as loss change per node for each community)
--- Most important community index
-
-
-
-
 ### Save model 
 
 The code supports saving model checkpoints in the /checkpoints directory with the command argument
@@ -97,6 +83,20 @@ The code supports saving model checkpoints in the /checkpoints directory with th
 ```
 Alternatively, we can also specify it in config file
 
-###  notebooks
+### Output
+
+Output are logged in the log file (specified in config.yaml) in the form of:
+
+-- Training/Test losses (prediction+modularity loss for train set, prediction loss for test set)
+
+-- Model performance (Prediction accuracy for train/test set)
+
+-- Community Importance (calculated as loss change per node for each community)+Most important community index
+
+-- Top nodes in the most important community
+
+-- Top edges within the most important community
+
+##  Notebooks
 
 Please see the notebook entitled *ontologyGNN.ipynb* (located in the notebooks directory) to run the model in a jupyter notebook. 
