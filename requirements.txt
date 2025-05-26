@@ -3,11 +3,10 @@ owlready2==0.47
 rdflib==7.1.4
 PyYAML==6.0.2
 torch==2.6.0+cu124
-torch_geometric==2.6.1
+torch_geometric
 pandas==2.2.2
 numpy==2.0.2
-scikit-learn==3.1,
+scikit-learn
 networkx==3.4.2
 pypickle
 matplotlib
-jsonlib==1.6.1
