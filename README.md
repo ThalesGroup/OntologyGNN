@@ -1,6 +1,10 @@
 # OntologyGNN
 
-Custom GNN model for ontology based data.
+Interpretable GNN model for ontology based data.
+
+## 📊 Model Architecture
+
+![GNN Architecture](img/GNNmodel.png)
 
 ---
 
