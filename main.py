@@ -9,19 +9,18 @@ from matplotlib import pyplot as plt
 from src.train import train_model
 from src.utils import load_data, load_config, override_config, parse_args
 import yaml
-    
+import logging    
     
 # Main execution block
 if __name__ == "__main__":
-    
-    config = load_config("config.yaml")
-    args = parse_args()
-    config = override_config(config, args)
 
     # Determine device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device}")
+    logging.info(f"Using device: {device}")
     
+    config = load_config("config.yaml")
+    args = parse_args()
+    config = override_config(config, args)    
 
     data_specs = config['data']
     data_directory = data_specs['data_directory']
@@ -32,8 +31,17 @@ if __name__ == "__main__":
             data_config=data_specs
         )
 
+    experiment_path = setup_logger(
+        log_dir=config["experiment"]["log_dir"],
+        experiment_name=config["experiment"]["name"]
+    )
+
+    logging.info("Experiment started.")
+    logging.info(f"Hyperparameters: {config['hyperparams']}")
+    logging.info(f"Model config: {config['model']}")
+
     # Train the model
-    print("Starting training...")
+    logging.info("Starting training...")
     model, test_losses, modularities = train_model(
         train_loader,
         test_loader,
@@ -43,18 +51,18 @@ if __name__ == "__main__":
         print_stats=True,
         plot=True # Set to False if you don't want plots saved
     )
-    print("Training finished.")
+    logging.info("Training finished.")
 
     # Evaluate the model
-    print("\nEvaluating model performance...")
+    logging.info("\nEvaluating model performance...")
     model.evaluate_model(train_loader, test_loader, device=device)
     
     # Analyze communities
-    print("\nAnalyzing detected communities...")
+    logging.info("\nAnalyzing detected communities...")
     # Ensure criterion is defined for importance calculation
     criterion = nn.CrossEntropyLoss().to(device) # Define criterion again if not global or passed
     
-    print("\nCalculating community importance...")
+    logging.info("\nCalculating community importance...")
     comm_importance = model.compute_community_importance(
         test_loader,
         criterion,
@@ -62,11 +70,11 @@ if __name__ == "__main__":
         num_communities=model.num_communities,
         print_stats=False # Set to True for detailed output per sample
     )
-    print(f"Community Importance (per community): {comm_importance.tolist()}")
+    logging.info(f"Community Importance (per community): {comm_importance.tolist()}")
     most_imp_comm_idx = torch.argmax(comm_importance).item()
-    print(f"Most important community index: {most_imp_comm_idx}")
+    logging.info(f"Most important community index: {most_imp_comm_idx}")
     
-    print("\nIdentifying important nodes in the most important community...")
+    logging.info("\nIdentifying important nodes in the most important community...")
     important_nodes_freq = model.important_community_nodes(
         test_loader,
         device=device,
@@ -76,9 +84,9 @@ if __name__ == "__main__":
     
     # Sort and print top nodes
     sorted_nodes = sorted(important_nodes_freq.items(), key=lambda item: item[1], reverse=True)
-    print("Top nodes in the most important community:")
+    logging.info("Top nodes in the most important community:")
     for node_name, freq in sorted_nodes[:20]: # Print top 20
-        print(f"  {node_name}: appears in {freq} samples")
+        logging.info(f"  {node_name}: appears in {freq} samples")
         
 
     save = config['experiment']['save']
@@ -91,5 +99,5 @@ if __name__ == "__main__":
         save_path = os.path.join(config['experiment']['save_dir'], config['experiment']['name']+'.pt')
         # Need to import os
         torch.save(model.state_dict(), save_path)
-        print(f"Model saved to {save_path}")
+        logging.info(f"Model saved to {save_path}")
     
