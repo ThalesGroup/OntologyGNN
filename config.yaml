@@ -23,5 +23,5 @@ experiment:
   name: "exp1_community_gnn"
   seed: 42
   log_dir: "logs/"
-  save_log:False
+  save_log: False
   save_dir: "checkpoints/"
