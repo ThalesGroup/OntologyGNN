@@ -16,7 +16,6 @@ if __name__ == "__main__":
 
     # Determine device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    logging.info(f"Using device: {device}")
     
     config = load_config("config.yaml")
     args = parse_args()
@@ -35,7 +34,7 @@ if __name__ == "__main__":
         log_dir=config["experiment"]["log_dir"],
         experiment_name=config["experiment"]["name"]
     )
-
+    logging.info(f"Using device: {device}")
     logging.info("Experiment started.")
     logging.info(f"Hyperparameters: {config['hyperparams']}")
     logging.info(f"Model config: {config['model']}")
@@ -87,6 +86,26 @@ if __name__ == "__main__":
     logging.info("Top nodes in the most important community:")
     for node_name, freq in sorted_nodes[:20]: # Print top 20
         logging.info(f"  {node_name}: appears in {freq} samples")
+
+    
+    logging.info("\nIdentifying important edges within the most important community...")
+    # Assuming edge_index is available from load_data
+    imp_edges = model.important_community_edges(
+        test_loader,
+        edge_index=edge_index, # Pass the edge_index
+        device=device,
+        criterion=criterion,
+        print_stats=False # Set to True for detailed output per sample
+    )
+
+    # Sort and print top edges
+    # Convert edge tuple of indices back to names for printing
+    sorted_edges = sorted(imp_edges.items(), key=lambda item: item[1], reverse=True)
+    logging.info("Top edges within the most important community:")
+    for (i, j), count in sorted_edges[:20]: # Print top 20
+        name_i = ontology_node_list[i]
+        name_j = ontology_node_list[j]
+        logging.info(f"  ({name_i}, {name_j}): appears in {count} samples")
         
 
     save = config['experiment']['save']
