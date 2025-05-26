@@ -51,6 +51,10 @@ def override_config(config, args):
         config["data"]["n_samples"] = args.n_samples
     if args.batch_size is not None:
         config["data"]["batch_size"] = args.batch_size
+    if args.ontology_file is not None:
+        config["data"]["ontology_file"] = args.ontology_file
+    if args.feature_class_map is not None:
+        config["data"]["feature_class_map"] = args.feature_class_map
     if args.epochs is not None:
         config["training"]["epochs"] = args.epochs
     if args.lr is not None:
