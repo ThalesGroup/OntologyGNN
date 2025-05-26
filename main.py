@@ -54,7 +54,9 @@ if __name__ == "__main__":
 
     # Evaluate the model
     logging.info("\nEvaluating model performance...")
-    model.evaluate_model(train_loader, test_loader, device=device)
+    metrics = model.evaluate_model(train_loader, test_loader, device=device)
+    for k, v in metrics.items():
+        logging.info(f"{k}: {v:.4f}")
     
     # Analyze communities
     logging.info("\nAnalyzing detected communities...")
