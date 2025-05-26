@@ -53,4 +53,4 @@ python3 main.py --dataset data/TCGA --n_communities 3 --epochs 100 --n_samples 1
 
 ###  notebooks
 
-Please see the notebook entitled *Interpretation_tool.ipynb* (located in the notebooks directory) to perform the biological interpretation of the results.
+Please see the notebook entitled *ontologyGNN.ipynb* (located in the notebooks directory) to run the model in a jupyter notebook. 
