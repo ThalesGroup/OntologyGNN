@@ -10,3 +10,4 @@ scikit-learn
 networkx==3.4.2
 pypickle
 matplotlib
+logging
