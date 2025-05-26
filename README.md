@@ -18,23 +18,21 @@ The code works with two data sources - the Titanic data for suvival prediction, 
 
 TCGA dataset can be downloaded from [GDC portal](https://portal.gdc.cancer.gov/). 
 
-## 📂 Usage
+## Usage
 
 To work with the two supported datasets, structure your `data/` directory as follows:
 
+```bash
 data/
 ├── titanic/
 │ ├── ontology_file # (ttl, rdf, or owl format)
-│ └── feature-to-class_map.json
+│ └── feature-to-class_map (json)
 ├── tcga/
 │ ├── matrix_connection_truncated.csv
 │ ├── tcga.npz
 │ └── tcga_graph.pickle
+```
 
-
-- **ontology_file**: A file describing the ontology (accepted formats: `.ttl`, `.rdf`, `.owl`).
-- **feature-to-class_map.json**: A mapping from input features to ontology classes.
-- **tcga_graph.pickle**: Serialized graph object representing the gene interaction structure.
 
 Make sure these files are placed exactly as shown to ensure compatibility with the `load_data'
 
