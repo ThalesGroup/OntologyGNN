@@ -3,7 +3,7 @@ data:
   batch_size: 16
   n_samples:
   ontology_file: ".data/titanic/titanic_with_cabins.ttl"
-  feature_class_map: "/data/titanic/mapping_titanic.json"
+  feature_class_map: "./data/titanic/mapping_titanic.json"
 
 model:
   name: "OntologyCommunityDetection"
