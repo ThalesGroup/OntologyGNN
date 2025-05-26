@@ -7,7 +7,7 @@ import matplotlib
 matplotlib.use('Agg') # Use Agg backend for non-interactive plotting
 from matplotlib import pyplot as plt
 from src.train import train_model
-from src.utils import load_data, load_config, override_config, parse_args
+from src.utils import load_data, load_config, override_config, parse_args, setup_logger
 import yaml
 import logging    
     
