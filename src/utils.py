@@ -27,6 +27,7 @@ def parse_args():
     parser.add_argument("--n_communities", type=int, default=3, help="number of communities")
     parser.add_argument("--lambda_param", type=float, default=1.0, help="loss weighting between prediction and community metric (modularity)")
     parser.add_argument("--ontology_file", type=str, default='titanic_with_cabins.ttl', help="Path to the ontology file (ttl, rdf, owl)")
+    parser.add_argument("--feature_class_map", type=str, default='mapping_titanic.json', help="Path feature-to-class map file (json")
     parser.add_argument("--epochs", type=int, default=300, help="Number of training epochs")
     parser.add_argument("--n_samples", type=int, required=False, help="Number of data samples for training")
     parser.add_argument("--batch_size", type=int, default=16, help="Batch size for training")
