@@ -214,6 +214,9 @@ class OntologyCommunityDetection(nn.Module):
         print(f"Train Accuracy: {train_accuracy:.4f}")
         print(f"Test Accuracy: {test_accuracy:.4f}")
 
+        return {'Training accuracy':train_accuracy,
+               'Test accuracy':test_accuracy}
+
 
     # function to get detected communities for all individual datapoints
     def get_trained_communities(self, data_loader, device, print_stats=True):
