@@ -22,13 +22,33 @@ TCGA dataset can be downloaded from [GDC portal](https://portal.gdc.cancer.gov/)
 
 To work with the above two datasets, the user needs to structure the data files in the data directory as:
 
+--data
+    --titanic
+        --ontology_file (ttl, rdf, owl)
+        --feature-to-class_map file (json)
+    --tcga
+        --matrix_connection_truncated.csv
+        --tcga.npz
+        --tcga_graph.pickle
 
-Example on TCGA dataset:
-<!--
-There exists 3 functions (flag *processing*): one is dedicated to the training of the model (*train*), another one to the evaluation of the model on the test set (*evaluate*), and the last one to the prediction of the outcomes of the samples from the test set (*predict*).
--->
+### Example on Titanic dataset:
 
-### Train
+#### Train
+
+```bash
+python3 main.py --dataset data/titanic --n_communities 3 --epochs 100
+```
+
+Optional - specify ontology or feature-to-class mappings files separately. If not provided, model will use default files based in config.yaml
+
+```bash
+python3 main.py --dataset data/titanic --n_communities 3 --epochs 100 --ontology_file ontology.ttl
+```
+
+### Example on TCGA dataset:
+
+
+#### Train
 
 <!-- On the microarray dataset:
 ```bash
@@ -40,19 +60,17 @@ python3 scripts/GraphGONet.py --save --n_inputs=36834 --n_nodes=10663 --n_nodes_
 python3 main.py --dataset data/TCGA --n_communities 3 --epochs 100
 ```
 
-<!--
-### 2) Evaluate
 
-### 3) Predict
-
-The outcomes are saved into a numpy array.
--->
-
-
-### Train the model with a small number of training samples
+#### Train the model with a small number of training samples
 
 ```bash
 python3 main.py --dataset data/TCGA --n_communities 3 --epochs 100 --n_samples 1000
+```
+
+#### To run on cluster
+
+```bash
+sbatch train_job.slurm
 ```
 
 ###  notebooks
