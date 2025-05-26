@@ -18,18 +18,25 @@ The code works with two data sources - the Titanic data for suvival prediction, 
 
 TCGA dataset can be downloaded from [GDC portal](https://portal.gdc.cancer.gov/). 
 
-## Usage
+## 📂 Usage
 
-To work with the above two datasets, the user needs to structure the data files in the data directory as:
+To work with the two supported datasets, structure your `data/` directory as follows:
 
---data
-    --titanic
-        --ontology_file (ttl, rdf, owl)
-        --feature-to-class_map file (json)
-    --tcga
-        --matrix_connection_truncated.csv
-        --tcga.npz
-        --tcga_graph.pickle
+data/
+├── titanic/
+│ ├── ontology_file # (ttl, rdf, or owl format)
+│ └── feature-to-class_map.json
+├── tcga/
+│ ├── matrix_connection_truncated.csv
+│ ├── tcga.npz
+│ └── tcga_graph.pickle
+
+
+- **ontology_file**: A file describing the ontology (accepted formats: `.ttl`, `.rdf`, `.owl`).
+- **feature-to-class_map.json**: A mapping from input features to ontology classes.
+- **tcga_graph.pickle**: Serialized graph object representing the gene interaction structure.
+
+Make sure these files are placed exactly as shown to ensure compatibility with the `load_data'
 
 ### Example on Titanic dataset:
 
@@ -50,11 +57,6 @@ python3 main.py --dataset data/titanic --n_communities 3 --epochs 100 --ontology
 
 #### Train
 
-<!-- On the microarray dataset:
-```bash
-python3 scripts/GraphGONet.py --save --n_inputs=36834 --n_nodes=10663 --n_nodes_annotated=8249 --n_classes=1 --selection_op="top" --selection_ratio=0.001 --n_epochs=50 --es --patience=5 --class_weight 
-```
--->
 
 ```bash
 python3 main.py --dataset data/TCGA --n_communities 3 --epochs 100
@@ -72,6 +74,10 @@ python3 main.py --dataset data/TCGA --n_communities 3 --epochs 100 --n_samples 1
 ```bash
 sbatch train_job.slurm
 ```
+
+### Output
+
+Output
 
 ###  notebooks
 
