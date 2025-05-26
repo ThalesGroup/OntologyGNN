@@ -10,7 +10,7 @@ Interpretable GNN model for ontology based data.
 
 ## Description
 
-The model is based on Graph Attention Model to get output predictions for an Ontology based data task (classification/regression). It is also designed to detect important sub-graphs/communities within the ontology graph which are important for the model's predictions.
+The model is Graph Neural Network based architecture to get output predictions for an Ontology based data task (classification/regression). It is also designed to detect important sub-graphs/communities within the ontology graph which are important for the model's predictions.
 
 ## Dataset
 
@@ -27,6 +27,7 @@ data/
 ├── titanic/
 │ ├── ontology_file # (ttl, rdf, or owl format)
 │ └── feature-to-class_map (json)
+  └── titanic data (csv)
 ├── tcga/
 │ ├── matrix_connection_truncated.csv
 │ ├── tcga.npz
@@ -75,7 +76,26 @@ sbatch train_job.slurm
 
 ### Output
 
-Output
+Output are logged in the log file (specified in config.yaml) in the form of:
+
+-- Training/Test losses (prediction+modularity loss for train set, prediction loss for test set)
+
+-- Model performance (Prediction accuracy for train/test set)
+
+-- Community Importance (calculated as loss change per node for each community)
+-- Most important community index
+
+
+
+
+### Save model 
+
+The code supports saving model checkpoints in the /checkpoints directory with the command argument
+
+```bash
+--save (True/False)
+```
+Alternatively, we can also specify it in config file
 
 ###  notebooks
 
