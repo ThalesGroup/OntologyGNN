@@ -37,6 +37,12 @@ data/
 
 Make sure these files are placed exactly as shown to ensure compatibility with the `load_data'
 
+#### To run with default configs (specified in config.yaml file)
+
+```bash
+python3 main.py
+```
+
 ### Example on Titanic dataset:
 
 #### Train
