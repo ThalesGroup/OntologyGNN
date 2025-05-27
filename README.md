@@ -55,6 +55,12 @@ interpretation_label:
 
 If None, the code will analyze community structures for all samples
 
+If we want to run the model some times, we can specify here:
+
+repeat_analysis: (Default 1)
+
+The output will then print the aggregated stats across all runs
+
 #### To run with default configs (specified in config.yaml file)
 
 ```bash
