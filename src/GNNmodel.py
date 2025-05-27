@@ -218,32 +218,23 @@ class OntologyCommunityDetection(nn.Module):
                'Test accuracy':test_accuracy}
 
 
-    # function to get detected communities for all individual datapoints
-    def get_trained_communities(self, data_loader, device, print_stats=True):
+    def get_trained_communities(self, data_loader, device, print_stats=True, filter_label=None):
         self.eval()
-        all_preds = []
-        all_communities = []
-        all_labels = []
+        all_preds, all_communities, all_labels = [], [], []
 
         with torch.no_grad():
             sample_counter = 1
             for i, data in enumerate(data_loader):
                 data = data.to(device)
+                output = self(data)
 
-                # Forward pass through the model
-                # Ensure model forward pass returns the expected outputs
-                model_output = self(data)
+                # If model returns both prediction and community assignment
+                predictions, comm_assign_batch = output if isinstance(output, tuple) else (output, None)
 
-                if isinstance(model_output, tuple) and len(model_output) == 2:
-                    predictions, comm_assign_batch = model_output # comm_assign_batch shape: (batch_size, num_nodes, num_communities)
-                else:
-                    # Handle case where model might not return communities
-                    predictions = model_output
-                    comm_assign_batch = None # No communities detected by model
-
+                # Get predicted labels based on task type
                 if self.task == 'classification' and self.out_channels > 1:
                     pred_labels = torch.argmax(predictions, dim=1)
-                elif self.task == 'classification' and self.out_channels == 1:
+                elif self.task == 'classification':
                     pred_labels = (predictions > 0.5).long().squeeze()
                 else:
                     pred_labels = predictions.squeeze()
@@ -252,47 +243,40 @@ class OntologyCommunityDetection(nn.Module):
                 all_labels.append(data.y.cpu())
 
                 if comm_assign_batch is not None:
-                    # Iterate through each graph in the batch
                     batch_size = data.num_graphs
-                    # Find the start index of each graph in the concatenated batch tensors
-                    # This is needed to convert global indices back to local per-graph indices
+
+                    # Identify start indices of each graph in batch
                     batch_starts = torch.cat([torch.tensor([0], device=device), torch.bincount(data.batch).cumsum(dim=0)[:-1]])
 
                     for graph_idx in range(batch_size):
-                        # Get community assignments for the current graph
-                        comm = comm_assign_batch[graph_idx] # Shape: (num_nodes_in_graph, num_communities)
-                        comm_ids = torch.argmax(comm, dim=1) # Shape: (num_nodes_in_graph,)
+                        # Apply filter if specified
+                        if filter_label is not None and pred_labels[graph_idx].item() != filter_label:
+                            continue
 
+                        comm = comm_assign_batch[graph_idx]
+                        comm_ids = torch.argmax(comm, dim=1)
                         all_communities.append(comm_ids.cpu())
 
                         if print_stats:
                             print('sample:', sample_counter)
-                            #print(f"\nBatch {i}, Graph {graph_idx}:")
                             print(f"  Predicted Label = {pred_labels[graph_idx].item()}, Actual Label = {data.y[graph_idx].item()}")
                             print(f"  Node Community assignments = {comm_ids.tolist()}")
-                            unique_comms = torch.unique(comm_ids)
-                            print(f"  Unique communities = {unique_comms.tolist()}")
 
-                            # Community-wise node count
+                            # Count how many nodes in each community
                             comm_counts = torch.bincount(comm_ids, minlength=self.num_communities)
                             for cid in range(self.num_communities):
                                 print(f"    Community {cid}: {comm_counts[cid].item()} nodes")
 
-                            # Community edge analysis (intra/inter) for the current graph
-                            # Filter edge_index to get edges only within this graph
+                            # Extract edges belonging to current graph
                             node_mask = data.batch == graph_idx
-                            # Find edges where both source and destination are in this graph
                             graph_edge_mask = node_mask[data.edge_index[0]] & node_mask[data.edge_index[1]]
-                            graph_edge_index = data.edge_index[:, graph_edge_mask] # Global indices
-
-                            # Convert global edge indices to local indices within the current graph
+                            graph_edge_index = data.edge_index[:, graph_edge_mask]
                             graph_edge_index_local = graph_edge_index - batch_starts[graph_idx]
 
-
+                            # Count intra- and inter-community edges
                             intra = torch.zeros(self.num_communities, dtype=torch.long, device=device)
                             inter = torch.zeros((self.num_communities, self.num_communities), dtype=torch.long, device=device)
 
-                            # Use local indices to access comm_ids
                             for edge_j in range(graph_edge_index_local.size(1)):
                                 src_local, dst_local = graph_edge_index_local[:, edge_j]
                                 src_c = comm_ids[src_local]
@@ -311,19 +295,15 @@ class OntologyCommunityDetection(nn.Module):
                                 for dst_c in range(self.num_communities):
                                     if src_c != dst_c and inter[src_c, dst_c] > 0:
                                         print(f"    Community {src_c} <-> {dst_c}: {inter[src_c, dst_c].item()} edges")
+
                         sample_counter += 1
 
         return all_communities
 
+
+
     # function to compute importance of communities by masking each community and checking change in prediction loss per node
-    def compute_community_importance(
-    self,
-    data_loader,
-    criterion,
-    device,
-    num_communities,
-    print_stats=True
-    ):
+    def compute_community_importance(self, data_loader, criterion, device, num_communities, print_stats=True, filter_label=None):
         self.eval()
         community_importance = torch.zeros(num_communities, device=device)
         counts = torch.zeros(num_communities, device=device)
@@ -331,141 +311,118 @@ class OntologyCommunityDetection(nn.Module):
         with torch.no_grad():
             for i, data in enumerate(data_loader):
                 data = data.to(device)
-
-                # Original prediction and loss
                 output_batch, comm_assign_batch = self(data)
                 targets = data.y
+
+                # Skip batch if no matching predicted label
+                if filter_label is not None:
+                    preds = torch.argmax(output_batch, dim=1) if self.out_channels > 1 else (output_batch > 0.5).long().squeeze()
+                    if not any(preds == filter_label):
+                        continue
+
+                # Original loss without masking any community
                 original_loss = criterion(output_batch.squeeze(1), targets)
+                comm_ids = comm_assign_batch.argmax(dim=-1)
 
-                if print_stats:
-                    print(f"\nSample {i + 1}")
-                    print(f"Original loss: {original_loss.item():.4f}")
-
-                # Determine dominant community per node
-                comm_ids = comm_assign_batch.argmax(dim=-1)  # shape: [batch_size, num_nodes]
-
+                # Loop over all communities to compute importance
                 for comm_idx in range(num_communities):
-                    # Create mask for nodes belonging to current community
-                    comm_mask = (comm_ids == comm_idx)  # bool mask: [batch_size, num_nodes]
-
+                    comm_mask = (comm_ids == comm_idx)
                     if comm_mask.sum() == 0:
-                        continue  # skip if no nodes in this community
+                        continue
 
-                    # Clone data to avoid modifying original batch
+                    # Clone data and mask nodes in the selected community
                     masked_data = data.clone()
-
-                    # Zero-out node features of the masked community nodes
-                    # data.x shape: [total_nodes_in_batch, num_features]
-                    # comm_mask shape: [batch_size, num_nodes]
-                    # Need to convert comm_mask to a flat mask for all nodes in batch
-
-                    # First, get a mask of shape [total_nodes_in_batch]
-                    # data.batch: tensor assigning node index to graph in batch
-                    batch = data.batch  # shape: [total_nodes_in_batch]
+                    batch = data.batch
                     masked_nodes = torch.zeros(data.x.size(0), dtype=torch.bool, device=device)
 
-                    # For each graph in batch, zero nodes belonging to community comm_idx
                     for graph_idx in range(data.num_graphs):
                         node_mask_graph = (batch == graph_idx)
-                        # Nodes of current graph in flat indices
                         node_indices = node_mask_graph.nonzero(as_tuple=False).squeeze()
-
-                        # comm_mask[graph_idx] shape: [num_nodes_in_graph]
-                        if comm_mask[graph_idx].sum() == 0:
-                            continue
-                        # comm_mask for current graph, convert to bool tensor
                         comm_mask_graph = comm_mask[graph_idx]
-
-                        # Find nodes in graph belonging to community comm_idx
+                        if comm_mask_graph.sum() == 0:
+                            continue
                         nodes_to_mask = node_indices[comm_mask_graph]
-
                         masked_nodes[nodes_to_mask] = True
 
-                    # Apply mask: zero-out features of masked nodes
+                    # Zero out node features
                     masked_data.x = masked_data.x.clone()
                     masked_data.x[masked_nodes] = 0
-
-                    # Forward pass on masked data
                     masked_output, _ = self(masked_data)
 
+                    # Compute new loss and delta
                     masked_loss = criterion(masked_output.squeeze(1), targets)
-
                     delta_loss = (masked_loss - original_loss) / comm_mask.sum()
 
-                    if print_stats:
-                        print(f"  Community {comm_idx}:")
-                        print(f"    Masked nodes: {int(comm_mask.sum().item())}")
-                        print(f"    Loss change per node: {delta_loss.item():.6f}")
-
+                    # Accumulate per-community statistics
                     community_importance[comm_idx] += delta_loss
                     counts[comm_idx] += 1
 
-            # Normalize by how many times each community appeared
-            importance_normalized = community_importance / (counts + 1e-8)
+                    if print_stats:
+                        print(f"\nSample {i + 1}")
+                        print(f"  Community {comm_idx}: Masked nodes = {comm_mask.sum().item()}, ΔLoss = {delta_loss.item():.6f}")
 
-        return importance_normalized.cpu()
+        return (community_importance / (counts + 1e-8)).cpu()
 
-
-    def important_community_nodes(self, data_loader, device, criterion, print_stats=True):
-        """
-        Identifies and counts how often each node belongs to the most important community across all samples in the dataloader.
-        """
+    # function to get number of occurances of all nodes within important communities (for all samples or for samples of a target group)
+    def important_community_nodes(self, data_loader, device, criterion, print_stats=True, filter_label=None):
         self.eval()
-        num_nodes = self.n_nodes
-        node_frequency = torch.zeros(num_nodes, dtype=torch.long, device=device)
+        node_frequency = torch.zeros(self.n_nodes, dtype=torch.long, device=device)
 
-        # Compute community importance across all samples
+        # Identify most important community based on loss impact
         comm_importance = self.compute_community_importance(
-            data_loader, criterion, device, self.num_communities, print_stats=print_stats
+            data_loader, criterion, device, self.num_communities,
+            print_stats=print_stats, filter_label=filter_label
         )
         most_imp_comm = torch.argmax(comm_importance).item()
 
         with torch.no_grad():
-            sample_counter = 0
             for data in data_loader:
                 data = data.to(device)
-                _, communities = self(data)
-                # communities shape: [batch_size, num_nodes, num_communities]
-                comm_ids_batch = communities.argmax(dim=-1)  # [batch_size, num_nodes]
+                preds, communities = self(data)
 
-                for comm_ids in comm_ids_batch:
-                    # Count nodes belonging to most important community
-                    node_frequency += (comm_ids == most_imp_comm).long()
+                # Predicted labels per graph
+                pred_labels = torch.argmax(preds, dim=1) if self.out_channels > 1 else (preds > 0.5).long().squeeze()
+                batch_mask = pred_labels == filter_label if filter_label is not None else torch.ones(data.num_graphs, dtype=torch.bool, device=device)
 
-        # Map node indices to names and frequencies
-        node_name_to_frequency = {self.node_list[i]: node_frequency[i].item() for i in range(num_nodes)}
+                # Get community assignment per node
+                comm_ids_batch = communities.argmax(dim=-1)
 
-        return node_name_to_frequency
+                for i, comm_ids in enumerate(comm_ids_batch):
+                    if batch_mask[i]:
+                        node_frequency += (comm_ids == most_imp_comm).long()
 
+        # Return dictionary mapping node names to counts
+        return {self.node_list[i]: node_frequency[i].item() for i in range(self.n_nodes)}
 
-    def important_community_edges(self, data_loader, edge_index, device, criterion, print_stats=True):
-        """
-        Counts how often each edge connects nodes in the most important community across all samples in the dataloader.
-        """
+    # function to get number of occurances of all edges within important communities (for all samples or for samples of a target group)
+    def important_community_edges(self, data_loader, edge_index, device, criterion, print_stats=True, filter_label=None):
         self.eval()
         edge_counts = {}
-
-        # Compute community importance over all samples
         comm_importance = self.compute_community_importance(
-            data_loader, criterion, device, self.num_communities, print_stats=print_stats
+            data_loader, criterion, device, self.num_communities,
+            print_stats=print_stats, filter_label=filter_label
         )
         most_imp_comm = torch.argmax(comm_importance).item()
 
         with torch.no_grad():
-            # sample_counter = 0
             for data in data_loader:
                 data = data.to(device)
-                _, communities = self(data)
-                comm_ids_batch = communities.argmax(dim=-1)  # [batch_size, num_nodes]
+                preds, communities = self(data)
+                pred_labels = torch.argmax(preds, dim=1) if self.out_channels > 1 else (preds > 0.5).long().squeeze()
+                if filter_label is not None:
+                    batch_mask = pred_labels == filter_label
+                else:
+                    batch_mask = torch.ones(data.num_graphs, dtype=torch.bool, device=device)
 
-                for comm_ids in comm_ids_batch:
-                    # Iterate over all edges (fixed graph)
+                comm_ids_batch = communities.argmax(dim=-1)
+                for i, comm_ids in enumerate(comm_ids_batch):
+                    if not batch_mask[i]:
+                        continue
                     for j in range(edge_index.size(1)):
                         src = edge_index[0, j].item()
                         dst = edge_index[1, j].item()
-
                         if comm_ids[src] == most_imp_comm and comm_ids[dst] == most_imp_comm:
-                            edge = tuple(sorted((src, dst)))  # treat undirected edges equivalently
+                            edge = tuple(sorted((src, dst)))
                             edge_counts[edge] = edge_counts.get(edge, 0) + 1
 
         return edge_counts
