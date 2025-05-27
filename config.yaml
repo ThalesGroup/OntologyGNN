@@ -21,7 +21,7 @@ training:
 
 experiment:
   name: "exp1_community_gnn"
-  interpretation_label: 1
+  interpretation_label:
   log_dir: "logs/"
   save_log: True
   save_dir: "checkpoints/"
