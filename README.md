@@ -37,6 +37,20 @@ data/
 
 Make sure these files are placed exactly as shown to ensure compatibility with the `load_data'
 
+### Config
+
+We can change the model training and output settings in config.yaml
+
+Description of some key params in config file
+
+[Model hyperparameters]
+hyperparams:
+  num_communities: 3
+  lambda: 1.0
+
+[Experiments]
+
+
 #### To run with default configs (specified in config.yaml file)
 
 ```bash
