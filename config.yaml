@@ -25,3 +25,4 @@ experiment:
   log_dir: "logs/"
   save_log: True
   save_dir: "checkpoints/"
+  repeat_analysis: 1
