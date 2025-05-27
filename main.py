@@ -59,7 +59,10 @@ if __name__ == "__main__":
         logging.info(f"{k}: {v:.4f}")
     
     # Analyze communities
-    logging.info("\nAnalyzing detected communities...")
+    if config['experiment']['interpretation_label'] is not None:
+        logging.info(f"\nAnalyzing detected communities for predicted label: {config['experiment']['interpretation_label']}")
+    else:
+        logging.info("\nAnalyzing detected communities for all predictions")
     # Ensure criterion is defined for importance calculation
     criterion = nn.CrossEntropyLoss().to(device) # Define criterion again if not global or passed
     
@@ -69,7 +72,8 @@ if __name__ == "__main__":
         criterion,
         device=device,
         num_communities=model.num_communities,
-        print_stats=False # Set to True for detailed output per sample
+        print_stats=False, # Set to True for detailed output per sample
+        filter_label=config['experiment']['interpretation_label']
     )
     logging.info(f"Community Importance (per community): {comm_importance.tolist()}")
     most_imp_comm_idx = torch.argmax(comm_importance).item()
@@ -80,7 +84,8 @@ if __name__ == "__main__":
         test_loader,
         device=device,
         criterion=criterion,
-        print_stats=False # Set to True for detailed output per sample
+        print_stats=False, # Set to True for detailed output per sample
+        filter_label=config['experiment']['interpretation_label']
     )
     
     # Sort and print top nodes
@@ -97,7 +102,8 @@ if __name__ == "__main__":
         edge_index=edge_index, # Pass the edge_index
         device=device,
         criterion=criterion,
-        print_stats=False # Set to True for detailed output per sample
+        print_stats=False, # Set to True for detailed output per sample
+        filter_label=config['experiment']['interpretation_label']
     )
 
     # Sort and print top edges
