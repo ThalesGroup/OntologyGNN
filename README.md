@@ -49,7 +49,11 @@ hyperparams:
   lambda: 1.0
 
 [Experiments]
+For tasks involving classification, we can specify if we want to analyze detected community structures for samples of a specific prediction label in:
 
+interpretation_label:
+
+If None, the code will analyze community structures for all samples
 
 #### To run with default configs (specified in config.yaml file)
 
