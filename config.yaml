@@ -1,9 +1,9 @@
 data:
-  data_directory: "./data/titanic"
+  data_directory: "./files/titanic_uc"
   batch_size: 16
   n_samples:
-  ontology_file: ".data/titanic/titanic_with_cabins.ttl"
-  feature_class_map: "./data/titanic/mapping_titanic.json"
+  ontology_file: "titanic_with_individual_cabins_by_side.ttl"
+  feature_class_map: "mapping_titanic_with_individual_cabins_by_side.json"
 
 model:
   name: "OntologyCommunityDetection"
@@ -11,7 +11,7 @@ model:
   heads: 1
 
 hyperparams:
-  num_communities: 3
+  num_communities: 2
   lambda: 1.0
 
 training:
@@ -21,8 +21,8 @@ training:
 
 experiment:
   name: "exp1_community_gnn"
-  interpretation_label:
+  interpretation_label: 0
   log_dir: "logs/"
   save_log: True
   save_dir: "checkpoints/"
-  repeat_analysis: 1
+  repeat_analysis: 10
