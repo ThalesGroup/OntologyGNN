@@ -1,5 +1,5 @@
 data:
-  data_directory: "./files/titanic_uc"
+  data_directory: "./data/titanic"
   batch_size: 16
   n_samples:
   ontology_file: "titanic_with_individual_cabins_by_side.ttl"

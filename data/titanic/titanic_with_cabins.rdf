@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:untitled-ontology-163="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#"
+>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_location_on_boat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#location_on_boat"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_third_class_middle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance_A6_first_class_lifeboat3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance"/>
+    <untitled-ontology-163:arg2_distance rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat3"/>
+    <untitled-ontology-163:has_linguistic_value>very_close</untitled-ontology-163:has_linguistic_value>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_embarked">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#SecondClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b8">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_crew_portside_middle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Southampton">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Port"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_crew_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_siblings_spouses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_relatives"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_crew">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_cabin_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cabin_class"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#fare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg3_travel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg3"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travel"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b11">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#tank_top"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#age">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance_A6_first_class_lifeboat4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance"/>
+    <untitled-ontology-163:arg2_distance rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat4"/>
+    <untitled-ontology-163:has_linguistic_value>very_close</untitled-ontology-163:has_linguistic_value>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_third_class_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_first_class_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_cabin_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cabin_class"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cherbourg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Port"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#has_meter_value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b10">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#orlop_decks"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b14">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b15"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_third_class_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_engineers_portside_middle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b4">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Boat_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#ThirdClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_third_class_corridor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b6">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_first_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_second_class_starboard_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b18">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_location_on_boat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#location_on_boat"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_parents_children">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_relatives"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_first_class_starboard_middle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Fare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_third_class_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b13">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#survival">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_crew_portside_middle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#capacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Lifeboat"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_travel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travel"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_third_class_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#very_close">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_deck_first_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_first_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#emergency_cutter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_A">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_relatives">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b15">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapisble_B">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#close">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_distance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b2">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travelling_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Port">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_second_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#location_on_boat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_third_class_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_officers">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_third_class_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b23">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_officer_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b24"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_first_class_starboard_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_engineer_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_embarked">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Starboard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#BoatLocation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_third_class_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_D">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b19">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_travel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travel"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ticket"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#tank_top">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_travelling_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#FirstClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Class"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cabin_class"/>
+    <untitled-ontology-163:arg2_cabin_class rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#FirstClass"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b22">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_first_class_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b23"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cutter_1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#emergency_cutter"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Boat_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#orlop_decks">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_third_class_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b16">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b17"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b9">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_engineers_middle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b5">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_travelling_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#number">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ticket"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cutter_2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#emergency_cutter"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b21">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_engineer_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_second_class_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_second_class_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_lifeboat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#far">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#average">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_crew">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_third_class_back">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_distance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_engineers">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#has_linguistic_value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b24">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_second_class_cabin"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_officer_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#very_far">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_third_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_deck_services">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Lifeboat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#PortSide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#BoatLocation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b7">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b3">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_Deck"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_crew_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#embarked">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Family">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ticket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_first_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_second_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_second_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Woman">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_second_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Man">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_third_class_front">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_first_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_Deck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_cabin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#BoatLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cabin_class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Queenstown">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Port"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b17">
+    <rdf:first rdf:resource="http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_cabin"/>
+    <rdf:rest rdf:nodeID="n50f72e052c3a43b48125bd0ec9ca2d49b18"/>
+  </rdf:Description>
+</rdf:RDF>

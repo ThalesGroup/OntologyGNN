@@ -1,4 +1,5 @@
-data/
+data/tcga/
+data/TCGA/
 files/
 script/TCGA_data/
 .ipynb_checkpoints/

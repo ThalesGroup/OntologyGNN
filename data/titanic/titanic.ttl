@@ -1,0 +1,865 @@
+@prefix : <http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix untitled-ontology-163: <http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#> .
+@base <http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#> .
+
+<http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1
+untitled-ontology-163:arg1 rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_cabin_class
+untitled-ontology-163:arg1_cabin_class rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf untitled-ontology-163:arg1 ;
+                                       rdfs:domain untitled-ontology-163:cabin_class ;
+                                       rdfs:range untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_distance
+untitled-ontology-163:arg1_distance rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_embarked
+untitled-ontology-163:arg1_embarked rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_location_on_boat
+untitled-ontology-163:arg1_location_on_boat rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf untitled-ontology-163:arg1 ;
+                                            rdfs:domain untitled-ontology-163:location_on_boat ;
+                                            rdfs:range untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_travel
+untitled-ontology-163:arg1_travel rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf untitled-ontology-163:arg1 ;
+                                  rdfs:domain untitled-ontology-163:travel ;
+                                  rdfs:range untitled-ontology-163:Person .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg1_travelling_class
+untitled-ontology-163:arg1_travelling_class rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2
+untitled-ontology-163:arg2 rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_cabin_class
+untitled-ontology-163:arg2_cabin_class rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf untitled-ontology-163:arg2 ;
+                                       rdfs:domain untitled-ontology-163:cabin_class ;
+                                       rdfs:range untitled-ontology-163:Class .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_distance
+untitled-ontology-163:arg2_distance rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_embarked
+untitled-ontology-163:arg2_embarked rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_location_on_boat
+untitled-ontology-163:arg2_location_on_boat rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf untitled-ontology-163:arg2 ;
+                                            rdfs:domain untitled-ontology-163:location_on_boat ;
+                                            rdfs:range untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_travel
+untitled-ontology-163:arg2_travel rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf untitled-ontology-163:arg2 ;
+                                  rdfs:domain untitled-ontology-163:travel ;
+                                  rdfs:range untitled-ontology-163:Ticket .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg2_travelling_class
+untitled-ontology-163:arg2_travelling_class rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg3
+untitled-ontology-163:arg3 rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#arg3_travel
+untitled-ontology-163:arg3_travel rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf untitled-ontology-163:arg3 ;
+                                  rdfs:domain untitled-ontology-163:travel ;
+                                  rdfs:range untitled-ontology-163:Cabin .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#age
+untitled-ontology-163:age rdf:type owl:DatatypeProperty ;
+                          rdfs:domain untitled-ontology-163:Person ;
+                          rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#capacity
+untitled-ontology-163:capacity rdf:type owl:DatatypeProperty ;
+                               rdfs:domain untitled-ontology-163:Lifeboat ;
+                               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#fare
+untitled-ontology-163:fare rdf:type owl:DatatypeProperty ;
+                           rdfs:domain untitled-ontology-163:Ticket ;
+                           rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#has_linguistic_value
+untitled-ontology-163:has_linguistic_value rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#has_meter_value
+untitled-ontology-163:has_meter_value rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#identifier
+untitled-ontology-163:identifier rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain untitled-ontology-163:Cabin ;
+                                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#name
+untitled-ontology-163:name rdf:type owl:DatatypeProperty ;
+                           rdfs:domain untitled-ontology-163:Person ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_parents_children
+untitled-ontology-163:nb_parents_children rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf untitled-ontology-163:nb_relatives ;
+                                          rdfs:domain untitled-ontology-163:Person ;
+                                          rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_relatives
+untitled-ontology-163:nb_relatives rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain untitled-ontology-163:Person ;
+                                   rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#nb_siblings_spouses
+untitled-ontology-163:nb_siblings_spouses rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf untitled-ontology-163:nb_relatives ;
+                                          rdfs:domain untitled-ontology-163:Person ;
+                                          rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#number
+untitled-ontology-163:number rdf:type owl:DatatypeProperty ;
+                             rdfs:domain untitled-ontology-163:Ticket ;
+                             rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#survival
+untitled-ontology-163:survival rdf:type owl:DatatypeProperty ;
+                               rdfs:domain untitled-ontology-163:Person ;
+                               rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_Deck
+untitled-ontology-163:A_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_cabin
+untitled-ontology-163:A_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_Deck
+untitled-ontology-163:B_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_cabin
+untitled-ontology-163:B_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#BoatLocation
+untitled-ontology-163:BoatLocation rdf:type owl:Class ;
+                                   rdfs:subClassOf untitled-ontology-163:Location .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Boat_Deck
+untitled-ontology-163:Boat_Deck rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_Deck
+untitled-ontology-163:C_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_cabin
+untitled-ontology-163:C_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cabin
+untitled-ontology-163:Cabin rdf:type owl:Class ;
+                            rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Class
+untitled-ontology-163:Class rdf:type owl:Class ;
+                            rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_Deck
+untitled-ontology-163:D_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_cabin
+untitled-ontology-163:D_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Deck
+untitled-ontology-163:Deck rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Distance
+untitled-ontology-163:Distance rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_Deck
+untitled-ontology-163:E_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_cabin
+untitled-ontology-163:E_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Entity
+untitled-ontology-163:Entity rdf:type owl:Class ;
+                             rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_Deck
+untitled-ontology-163:F_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_cabin
+untitled-ontology-163:F_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Family
+untitled-ontology-163:Family rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Fare
+untitled-ontology-163:Fare rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_Deck
+untitled-ontology-163:G_Deck rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_cabin
+untitled-ontology-163:G_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HW_lifeboat
+untitled-ontology-163:HW_lifeboat rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-163:Lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Lifeboat
+untitled-ontology-163:Lifeboat rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Location
+untitled-ontology-163:Location rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Man
+untitled-ontology-163:Man rdf:type owl:Class ;
+                          rdfs:subClassOf untitled-ontology-163:Person .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Person
+untitled-ontology-163:Person rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Port
+untitled-ontology-163:Port rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-163:Location .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ship_Zone
+untitled-ontology-163:Ship_Zone rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_cabin
+untitled-ontology-163:T_cabin rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-163:Cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_engineer_cabin
+untitled-ontology-163:T_engineer_cabin rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_first_class_cabin
+untitled-ontology-163:T_first_class_cabin rdf:type owl:Class ;
+                                          rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_officer_cabin
+untitled-ontology-163:T_officer_cabin rdf:type owl:Class ;
+                                      rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#T_second_class_cabin
+untitled-ontology-163:T_second_class_cabin rdf:type owl:Class ;
+                                           rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Ticket
+untitled-ontology-163:Ticket rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:Entity .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Woman
+untitled-ontology-163:Woman rdf:type owl:Class ;
+                            rdfs:subClassOf untitled-ontology-163:Person .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#association
+untitled-ontology-163:association rdf:type owl:Class ;
+                                  rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cabin_class
+untitled-ontology-163:cabin_class rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-163:association .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_lifeboat
+untitled-ontology-163:collapsible_lifeboat rdf:type owl:Class ;
+                                           rdfs:subClassOf untitled-ontology-163:Lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance
+untitled-ontology-163:distance rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-163:association .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#embarked
+untitled-ontology-163:embarked rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-163:association .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#emergency_cutter
+untitled-ontology-163:emergency_cutter rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-163:Lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#location_on_boat
+untitled-ontology-163:location_on_boat rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-163:association .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#orlop_decks
+untitled-ontology-163:orlop_decks rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#tank_top
+untitled-ontology-163:tank_top rdf:type owl:Class ;
+                               rdfs:subClassOf untitled-ontology-163:Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travel
+untitled-ontology-163:travel rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-163:association .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#travelling_class
+untitled-ontology-163:travelling_class rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-163:association .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_deck_first_class
+untitled-ontology-163:A_deck_first_class rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-163:A_Deck .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#A_deck_services
+untitled-ontology-163:A_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_first_class
+untitled-ontology-163:B_deck_first_class rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_second_class
+untitled-ontology-163:B_deck_second_class rdf:type owl:NamedIndividual ,
+                                                   untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_services
+untitled-ontology-163:B_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#B_deck_third_class
+untitled-ontology-163:B_deck_third_class rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_crew
+untitled-ontology-163:C_deck_crew rdf:type owl:NamedIndividual ,
+                                           untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_first_class
+untitled-ontology-163:C_deck_first_class rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_second_class
+untitled-ontology-163:C_deck_second_class rdf:type owl:NamedIndividual ,
+                                                   untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_services
+untitled-ontology-163:C_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_third_class_back
+untitled-ontology-163:C_deck_third_class_back rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#C_deck_third_class_front
+untitled-ontology-163:C_deck_third_class_front rdf:type owl:NamedIndividual ,
+                                                        untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Cherbourg
+untitled-ontology-163:Cherbourg rdf:type owl:NamedIndividual ,
+                                         untitled-ontology-163:Port .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_crew
+untitled-ontology-163:D_deck_crew rdf:type owl:NamedIndividual ,
+                                           untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_first_class
+untitled-ontology-163:D_deck_first_class rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_second_class
+untitled-ontology-163:D_deck_second_class rdf:type owl:NamedIndividual ,
+                                                   untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_services
+untitled-ontology-163:D_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_third_class_back
+untitled-ontology-163:D_deck_third_class_back rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#D_deck_third_class_front
+untitled-ontology-163:D_deck_third_class_front rdf:type owl:NamedIndividual ,
+                                                        untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_crew_portside_middle
+untitled-ontology-163:E_deck_crew_portside_middle rdf:type owl:NamedIndividual ,
+                                                           untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_engineers_portside_middle
+untitled-ontology-163:E_deck_engineers_portside_middle rdf:type owl:NamedIndividual ,
+                                                                untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_first_class_starboard_front
+untitled-ontology-163:E_deck_first_class_starboard_front rdf:type owl:NamedIndividual ,
+                                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_second_class_starboard_back
+untitled-ontology-163:E_deck_second_class_starboard_back rdf:type owl:NamedIndividual ,
+                                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_services
+untitled-ontology-163:E_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_third_class_back
+untitled-ontology-163:E_deck_third_class_back rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_third_class_corridor
+untitled-ontology-163:E_deck_third_class_corridor rdf:type owl:NamedIndividual ,
+                                                           untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#E_deck_third_class_front
+untitled-ontology-163:E_deck_third_class_front rdf:type owl:NamedIndividual ,
+                                                        untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_crew_front
+untitled-ontology-163:F_deck_crew_front rdf:type owl:NamedIndividual ,
+                                                 untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_crew_portside_middle
+untitled-ontology-163:F_deck_crew_portside_middle rdf:type owl:NamedIndividual ,
+                                                           untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_engineers_middle
+untitled-ontology-163:F_deck_engineers_middle rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_first_class_starboard_middle
+untitled-ontology-163:F_deck_first_class_starboard_middle rdf:type owl:NamedIndividual ,
+                                                                   untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_second_class_back
+untitled-ontology-163:F_deck_second_class_back rdf:type owl:NamedIndividual ,
+                                                        untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_services
+untitled-ontology-163:F_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_third_class_back
+untitled-ontology-163:F_deck_third_class_back rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_third_class_front
+untitled-ontology-163:F_deck_third_class_front rdf:type owl:NamedIndividual ,
+                                                        untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#F_deck_third_class_middle
+untitled-ontology-163:F_deck_third_class_middle rdf:type owl:NamedIndividual ,
+                                                         untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#FirstClass
+untitled-ontology-163:FirstClass rdf:type owl:NamedIndividual ,
+                                          untitled-ontology-163:Class ,
+                                          untitled-ontology-163:cabin_class ;
+                                 untitled-ontology-163:arg2_cabin_class untitled-ontology-163:FirstClass .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_crew_front
+untitled-ontology-163:G_deck_crew_front rdf:type owl:NamedIndividual ,
+                                                 untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_services
+untitled-ontology-163:G_deck_services rdf:type owl:NamedIndividual ,
+                                               untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_third_class_back
+untitled-ontology-163:G_deck_third_class_back rdf:type owl:NamedIndividual ,
+                                                       untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#G_deck_third_class_front
+untitled-ontology-163:G_deck_third_class_front rdf:type owl:NamedIndividual ,
+                                                        untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat1
+untitled-ontology-163:HL_lifeboat1 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat10
+untitled-ontology-163:HL_lifeboat10 rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat11
+untitled-ontology-163:HL_lifeboat11 rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat12
+untitled-ontology-163:HL_lifeboat12 rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat13
+untitled-ontology-163:HL_lifeboat13 rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat14
+untitled-ontology-163:HL_lifeboat14 rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat2
+untitled-ontology-163:HL_lifeboat2 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat3
+untitled-ontology-163:HL_lifeboat3 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat4
+untitled-ontology-163:HL_lifeboat4 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat5
+untitled-ontology-163:HL_lifeboat5 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat6
+untitled-ontology-163:HL_lifeboat6 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat7
+untitled-ontology-163:HL_lifeboat7 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat8
+untitled-ontology-163:HL_lifeboat8 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#HL_lifeboat9
+untitled-ontology-163:HL_lifeboat9 rdf:type owl:NamedIndividual ,
+                                            untitled-ontology-163:HW_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#PortSide
+untitled-ontology-163:PortSide rdf:type owl:NamedIndividual ,
+                                        untitled-ontology-163:BoatLocation .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Queenstown
+untitled-ontology-163:Queenstown rdf:type owl:NamedIndividual ,
+                                          untitled-ontology-163:Port .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#SecondClass
+untitled-ontology-163:SecondClass rdf:type owl:NamedIndividual ,
+                                           untitled-ontology-163:Class .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Southampton
+untitled-ontology-163:Southampton rdf:type owl:NamedIndividual ,
+                                           untitled-ontology-163:Port .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#Starboard
+untitled-ontology-163:Starboard rdf:type owl:NamedIndividual ,
+                                         untitled-ontology-163:BoatLocation .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#ThirdClass
+untitled-ontology-163:ThirdClass rdf:type owl:NamedIndividual ,
+                                          untitled-ontology-163:Class .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#average
+untitled-ontology-163:average rdf:type owl:NamedIndividual ,
+                                       untitled-ontology-163:Distance .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_engineers
+untitled-ontology-163:boat_deck_engineers rdf:type owl:NamedIndividual ,
+                                                   untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_first_class
+untitled-ontology-163:boat_deck_first_class rdf:type owl:NamedIndividual ,
+                                                     untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_officers
+untitled-ontology-163:boat_deck_officers rdf:type owl:NamedIndividual ,
+                                                  untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#boat_deck_second_class
+untitled-ontology-163:boat_deck_second_class rdf:type owl:NamedIndividual ,
+                                                      untitled-ontology-163:Ship_Zone .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#close
+untitled-ontology-163:close rdf:type owl:NamedIndividual ,
+                                     untitled-ontology-163:Distance .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapisble_B
+untitled-ontology-163:collapisble_B rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:collapsible_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_A
+untitled-ontology-163:collapsible_A rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:collapsible_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_C
+untitled-ontology-163:collapsible_C rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:collapsible_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#collapsible_D
+untitled-ontology-163:collapsible_D rdf:type owl:NamedIndividual ,
+                                             untitled-ontology-163:collapsible_lifeboat .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cutter_1
+untitled-ontology-163:cutter_1 rdf:type owl:NamedIndividual ,
+                                        untitled-ontology-163:emergency_cutter .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#cutter_2
+untitled-ontology-163:cutter_2 rdf:type owl:NamedIndividual ,
+                                        untitled-ontology-163:emergency_cutter .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance_A6_first_class_lifeboat3
+untitled-ontology-163:distance_A6_first_class_lifeboat3 rdf:type owl:NamedIndividual ,
+                                                                 untitled-ontology-163:distance ;
+                                                        untitled-ontology-163:arg2_distance untitled-ontology-163:HL_lifeboat3 ;
+                                                        untitled-ontology-163:has_linguistic_value "very_close" .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#distance_A6_first_class_lifeboat4
+untitled-ontology-163:distance_A6_first_class_lifeboat4 rdf:type owl:NamedIndividual ,
+                                                                 untitled-ontology-163:distance ;
+                                                        untitled-ontology-163:arg2_distance untitled-ontology-163:HL_lifeboat4 ;
+                                                        untitled-ontology-163:has_linguistic_value "very_close" .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#far
+untitled-ontology-163:far rdf:type owl:NamedIndividual ,
+                                   untitled-ontology-163:Distance .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#very_close
+untitled-ontology-163:very_close rdf:type owl:NamedIndividual ,
+                                          untitled-ontology-163:Distance .
+
+
+###  http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#very_far
+untitled-ontology-163:very_far rdf:type owl:NamedIndividual ,
+                                        untitled-ontology-163:Distance .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-163:A_Deck
+                untitled-ontology-163:B_Deck
+                untitled-ontology-163:Boat_Deck
+                untitled-ontology-163:C_Deck
+                untitled-ontology-163:D_Deck
+                untitled-ontology-163:E_Deck
+                untitled-ontology-163:F_Deck
+                untitled-ontology-163:G_Deck
+                untitled-ontology-163:orlop_decks
+                untitled-ontology-163:tank_top
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-163:A_cabin
+                untitled-ontology-163:B_cabin
+                untitled-ontology-163:C_cabin
+                untitled-ontology-163:D_cabin
+                untitled-ontology-163:E_cabin
+                untitled-ontology-163:F_cabin
+                untitled-ontology-163:T_cabin
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( untitled-ontology-163:T_engineer_cabin
+                untitled-ontology-163:T_first_class_cabin
+                untitled-ontology-163:T_officer_cabin
+                untitled-ontology-163:T_second_class_cabin
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

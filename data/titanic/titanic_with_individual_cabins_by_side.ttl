@@ -1,0 +1,3056 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix untitled-ontology-163: <http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/u1044/ontologies/2024/5/untitled-ontology-163> a owl:Ontology .
+
+untitled-ontology-163:A_deck_first_class a untitled-ontology-163:A_Deck,
+        owl:NamedIndividual .
+
+untitled-ontology-163:A_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:B_deck_first_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:B_deck_second_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:B_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:B_deck_third_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:C_deck_crew a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:C_deck_first_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:C_deck_second_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:C_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:C_deck_third_class_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:C_deck_third_class_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:Cherbourg a untitled-ontology-163:Port,
+        owl:NamedIndividual .
+
+untitled-ontology-163:D_deck_crew a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:D_deck_first_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:D_deck_second_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:D_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:D_deck_third_class_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:D_deck_third_class_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_crew_portside_middle a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_engineers_portside_middle a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_first_class_starboard_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_second_class_starboard_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_third_class_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_third_class_corridor a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:E_deck_third_class_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_crew_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_crew_portside_middle a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_engineers_middle a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_first_class_starboard_middle a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_second_class_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_third_class_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_third_class_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:F_deck_third_class_middle a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:Family a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:Fare a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:G_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:G_deck_crew_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:G_deck_services a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:G_deck_third_class_back a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:G_deck_third_class_front a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat1 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat10 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat11 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat12 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat13 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat14 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat2 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat5 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat6 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat7 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat8 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat9 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:Man a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Person .
+
+untitled-ontology-163:Queenstown a untitled-ontology-163:Port,
+        owl:NamedIndividual .
+
+untitled-ontology-163:SecondClass a untitled-ontology-163:Class,
+        owl:NamedIndividual .
+
+untitled-ontology-163:Southampton a untitled-ontology-163:Port,
+        owl:NamedIndividual .
+
+untitled-ontology-163:ThirdClass a untitled-ontology-163:Class,
+        owl:NamedIndividual .
+
+untitled-ontology-163:Woman a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Person .
+
+untitled-ontology-163:age a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Person ;
+    rdfs:range xsd:int .
+
+untitled-ontology-163:arg1_cabin_class a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:cabin_class ;
+    rdfs:range untitled-ontology-163:Cabin ;
+    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+untitled-ontology-163:arg1_distance a owl:ObjectProperty ;
+    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+untitled-ontology-163:arg1_embarked a owl:ObjectProperty ;
+    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+untitled-ontology-163:arg1_location_on_boat a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:location_on_boat ;
+    rdfs:range untitled-ontology-163:Cabin ;
+    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+untitled-ontology-163:arg1_travel a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:travel ;
+    rdfs:range untitled-ontology-163:Person ;
+    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+untitled-ontology-163:arg1_travelling_class a owl:ObjectProperty ;
+    rdfs:subPropertyOf untitled-ontology-163:arg1 .
+
+untitled-ontology-163:arg2_cabin_class a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:cabin_class ;
+    rdfs:range untitled-ontology-163:Class ;
+    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+untitled-ontology-163:arg2_distance a owl:ObjectProperty ;
+    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+untitled-ontology-163:arg2_embarked a owl:ObjectProperty ;
+    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+untitled-ontology-163:arg2_location_on_boat a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:location_on_boat ;
+    rdfs:range untitled-ontology-163:Ship_Zone ;
+    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+untitled-ontology-163:arg2_travel a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:travel ;
+    rdfs:range untitled-ontology-163:Ticket ;
+    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+untitled-ontology-163:arg2_travelling_class a owl:ObjectProperty ;
+    rdfs:subPropertyOf untitled-ontology-163:arg2 .
+
+untitled-ontology-163:arg3_travel a owl:ObjectProperty ;
+    rdfs:domain untitled-ontology-163:travel ;
+    rdfs:range untitled-ontology-163:Cabin ;
+    rdfs:subPropertyOf untitled-ontology-163:arg3 .
+
+untitled-ontology-163:average a untitled-ontology-163:Distance,
+        owl:NamedIndividual .
+
+untitled-ontology-163:boat_deck_engineers a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:boat_deck_first_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:boat_deck_officers a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:boat_deck_second_class a untitled-ontology-163:Ship_Zone,
+        owl:NamedIndividual .
+
+untitled-ontology-163:capacity a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Lifeboat ;
+    rdfs:range xsd:int .
+
+untitled-ontology-163:close a untitled-ontology-163:Distance,
+        owl:NamedIndividual .
+
+untitled-ontology-163:collapisble_B a untitled-ontology-163:collapsible_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:collapsible_A a untitled-ontology-163:collapsible_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:collapsible_C a untitled-ontology-163:collapsible_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:collapsible_D a untitled-ontology-163:collapsible_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:cutter_1 a untitled-ontology-163:emergency_cutter,
+        owl:NamedIndividual .
+
+untitled-ontology-163:cutter_2 a untitled-ontology-163:emergency_cutter,
+        owl:NamedIndividual .
+
+untitled-ontology-163:distance_A6_first_class_lifeboat3 a untitled-ontology-163:distance,
+        owl:NamedIndividual ;
+    untitled-ontology-163:arg2_distance untitled-ontology-163:HL_lifeboat3 ;
+    untitled-ontology-163:has_linguistic_value "very_close" .
+
+untitled-ontology-163:distance_A6_first_class_lifeboat4 a untitled-ontology-163:distance,
+        owl:NamedIndividual ;
+    untitled-ontology-163:arg2_distance untitled-ontology-163:HL_lifeboat4 ;
+    untitled-ontology-163:has_linguistic_value "very_close" .
+
+untitled-ontology-163:embarked a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:association .
+
+untitled-ontology-163:far a untitled-ontology-163:Distance,
+        owl:NamedIndividual .
+
+untitled-ontology-163:fare a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Ticket ;
+    rdfs:range xsd:int .
+
+untitled-ontology-163:has_linguistic_value a owl:DatatypeProperty .
+
+untitled-ontology-163:has_meter_value a owl:DatatypeProperty .
+
+untitled-ontology-163:identifier a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Cabin ;
+    rdfs:range xsd:string .
+
+untitled-ontology-163:name a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Person ;
+    rdfs:range xsd:string .
+
+untitled-ontology-163:nb_parents_children a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Person ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf untitled-ontology-163:nb_relatives .
+
+untitled-ontology-163:nb_siblings_spouses a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Person ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf untitled-ontology-163:nb_relatives .
+
+untitled-ontology-163:number a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Ticket ;
+    rdfs:range xsd:int .
+
+untitled-ontology-163:survival a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Person ;
+    rdfs:range xsd:boolean .
+
+untitled-ontology-163:travelling_class a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:association .
+
+untitled-ontology-163:very_close a untitled-ontology-163:Distance,
+        owl:NamedIndividual .
+
+untitled-ontology-163:very_far a untitled-ontology-163:Distance,
+        owl:NamedIndividual .
+
+<location_on_boat_A0> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A0> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A1> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A1> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A10> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A10> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A11> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A11> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A12> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A12> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A14> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A14> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A15> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A15> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A16> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A16> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A17> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A17> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A18> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A18> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A19> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A19> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A2> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A2> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A20> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A20> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A21> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A21> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A22> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A22> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A23> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A23> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A24> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A24> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A25> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A25> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A26> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A26> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A27> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A27> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A28> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A28> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A29> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A29> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A3> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A3> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A30> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A30> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A31> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A31> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A32> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A32> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A33> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A33> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A34> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A34> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A35> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A35> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A36> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A36> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A4> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A4> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A5> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A5> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A6> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A6> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A7> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A7> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_A8> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A8> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_A9> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <A9> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B0> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B0> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B1> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B1> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B10> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B10> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B100> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B100> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B101> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B101> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B11> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B11> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B12> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B12> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B14> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B14> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B15> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B15> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B16> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B16> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B17> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B17> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B18> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B18> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B19> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B19> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B2> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B2> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B20> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B20> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B21> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B21> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B22> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B22> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B23> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B23> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B24> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B24> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B25> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B25> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B26> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B26> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B27> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B27> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B28> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B28> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B29> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B29> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B3> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B3> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B30> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B30> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B31> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B31> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B32> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B32> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B33> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B33> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B34> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B34> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B35> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B35> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B36> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B36> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B37> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B37> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B38> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B38> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B39> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B39> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B4> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B4> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B40> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B40> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B41> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B41> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B42> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B42> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B43> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B43> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B44> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B44> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B45> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B45> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B46> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B46> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B47> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B47> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B48> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B48> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B49> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B49> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B5> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B5> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B50> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B50> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B51> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B51> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B52> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B52> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B53> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B53> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B54> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B54> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B55> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B55> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B56> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B56> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B57> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B57> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B58> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B58> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B59> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B59> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B6> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B6> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B60> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B60> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B61> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B61> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B62> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B62> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B63> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B63> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B64> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B64> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B65> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B65> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B66> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B66> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B67> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B67> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B68> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B68> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B69> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B69> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B7> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B7> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B70> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B70> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B71> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B71> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B72> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B72> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B73> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B73> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B74> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B74> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B75> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B75> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B76> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B76> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B77> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B77> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B78> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B78> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B79> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B79> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B8> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B8> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B80> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B80> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B81> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B81> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B82> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B82> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B83> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B83> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B84> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B84> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B85> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B85> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B86> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B86> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B87> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B87> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B88> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B88> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B89> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B89> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B9> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B9> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B90> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B90> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B91> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B91> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B92> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B92> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B93> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B93> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B94> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B94> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B95> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B95> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B96> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B96> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B97> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B97> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_B98> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B98> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_B99> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <B99> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C0> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C0> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C1> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C1> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C10> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C10> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C100> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C100> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C101> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C101> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C102> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C102> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C103> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C103> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C104> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C104> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C105> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C105> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C106> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C106> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C107> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C107> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C108> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C108> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C109> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C109> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C11> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C11> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C110> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C110> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C111> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C111> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C112> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C112> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C113> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C113> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C114> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C114> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C115> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C115> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C116> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C116> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C117> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C117> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C118> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C118> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C119> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C119> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C12> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C12> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C120> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C120> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C121> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C121> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C122> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C122> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C123> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C123> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C124> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C124> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C125> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C125> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C126> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C126> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C127> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C127> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C128> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C128> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C129> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C129> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C130> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C130> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C131> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C131> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C132> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C132> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C133> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C133> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C14> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C14> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C15> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C15> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C16> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C16> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C17> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C17> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C18> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C18> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C19> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C19> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C2> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C2> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C20> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C20> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C21> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C21> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C22> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C22> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C23> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C23> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C24> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C24> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C25> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C25> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C26> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C26> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C27> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C27> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C28> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C28> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C29> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C29> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C3> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C3> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C30> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C30> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C31> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C31> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C32> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C32> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C33> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C33> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C34> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C34> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C35> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C35> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C36> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C36> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C37> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C37> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C38> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C38> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C39> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C39> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C4> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C4> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C40> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C40> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C41> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C41> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C42> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C42> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C43> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C43> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C44> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C44> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C45> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C45> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C46> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C46> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C47> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C47> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C48> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C48> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C49> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C49> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C5> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C5> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C50> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C50> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C51> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C51> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C52> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C52> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C53> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C53> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C54> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C54> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C55> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C55> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C56> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C56> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C57> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C57> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C58> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C58> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C59> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C59> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C6> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C6> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C60> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C60> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C61> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C61> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C62> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C62> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C63> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C63> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C64> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C64> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C65> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C65> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C66> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C66> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C67> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C67> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C68> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C68> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C69> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C69> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C7> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C7> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C70> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C70> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C71> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C71> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C72> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C72> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C73> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C73> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C74> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C74> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C75> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C75> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C76> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C76> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C77> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C77> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C78> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C78> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C79> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C79> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C8> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C8> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C80> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C80> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C81> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C81> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C82> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C82> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C83> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C83> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C84> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C84> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C85> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C85> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C86> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C86> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C87> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C87> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C88> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C88> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C89> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C89> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C9> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C9> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C90> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C90> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C91> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C91> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C92> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C92> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C93> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C93> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C94> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C94> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C95> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C95> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C96> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C96> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C97> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C97> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_C98> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C98> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_C99> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <C99> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D0> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D0> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D1> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D1> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D10> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D10> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D11> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D11> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D12> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D12> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D14> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D14> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D15> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D15> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D16> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D16> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D17> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D17> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D18> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D18> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D19> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D19> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D2> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D2> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D20> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D20> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D21> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D21> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D22> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D22> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D23> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D23> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D24> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D24> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D25> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D25> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D26> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D26> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D27> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D27> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D28> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D28> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D29> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D29> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D3> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D3> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D30> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D30> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D31> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D31> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D32> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D32> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D33> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D33> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D34> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D34> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D35> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D35> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D36> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D36> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D37> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D37> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D38> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D38> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D39> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D39> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D4> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D4> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D40> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D40> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D41> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D41> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D42> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D42> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D43> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D43> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D44> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D44> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D45> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D45> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D46> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D46> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D47> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D47> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D48> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D48> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D49> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D49> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D5> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D5> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D6> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D6> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D7> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D7> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_D8> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D8> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_D9> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <D9> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E0> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E0> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E1> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E1> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E10> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E10> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E100> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E100> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E101> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E101> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E102> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E102> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E103> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E103> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E104> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E104> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E105> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E105> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E106> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E106> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E11> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E11> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E12> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E12> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E14> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E14> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E15> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E15> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E16> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E16> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E17> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E17> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E18> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E18> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E19> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E19> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E2> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E2> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E20> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E20> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E21> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E21> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E22> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E22> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E23> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E23> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E24> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E24> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E25> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E25> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E26> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E26> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E27> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E27> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E28> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E28> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E29> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E29> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E3> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E3> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E30> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E30> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E31> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E31> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E32> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E32> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E33> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E33> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E34> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E34> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E35> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E35> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E36> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E36> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E37> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E37> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E38> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E38> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E39> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E39> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E4> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E4> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E40> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E40> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E41> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E41> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E42> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E42> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E43> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E43> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E44> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E44> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E45> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E45> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E46> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E46> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E47> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E47> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E48> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E48> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E49> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E49> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E5> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E5> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E50> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E50> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E51> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E51> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E52> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E52> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E53> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E53> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E54> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E54> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E55> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E55> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E56> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E56> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E57> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E57> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E58> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E58> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E59> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E59> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E6> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E6> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E60> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E60> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E61> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E61> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E62> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E62> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E63> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E63> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E64> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E64> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E65> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E65> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E66> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E66> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E67> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E67> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E68> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E68> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E69> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E69> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E7> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E7> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E70> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E70> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E71> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E71> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E72> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E72> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E73> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E73> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E74> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E74> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E75> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E75> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E76> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E76> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E77> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E77> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E78> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E78> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E79> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E79> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E8> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E8> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E80> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E80> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E81> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E81> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E82> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E82> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E83> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E83> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E84> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E84> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E85> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E85> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E86> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E86> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E87> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E87> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E88> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E88> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E89> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E89> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E9> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E9> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E90> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E90> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E91> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E91> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E92> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E92> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E93> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E93> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E94> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E94> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E95> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E95> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E96> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E96> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E97> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E97> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<location_on_boat_E98> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E98> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:PortSide .
+
+<location_on_boat_E99> a untitled-ontology-163:location_on_boat ;
+    untitled-ontology-163:arg1_location_on_boat <E99> ;
+    untitled-ontology-163:arg2_location_on_boat untitled-ontology-163:Starboard .
+
+<A0> a untitled-ontology-163:A_cabin .
+
+<A1> a untitled-ontology-163:A_cabin .
+
+<A10> a untitled-ontology-163:A_cabin .
+
+<A11> a untitled-ontology-163:A_cabin .
+
+<A12> a untitled-ontology-163:A_cabin .
+
+<A14> a untitled-ontology-163:A_cabin .
+
+<A15> a untitled-ontology-163:A_cabin .
+
+<A16> a untitled-ontology-163:A_cabin .
+
+<A17> a untitled-ontology-163:A_cabin .
+
+<A18> a untitled-ontology-163:A_cabin .
+
+<A19> a untitled-ontology-163:A_cabin .
+
+<A2> a untitled-ontology-163:A_cabin .
+
+<A20> a untitled-ontology-163:A_cabin .
+
+<A21> a untitled-ontology-163:A_cabin .
+
+<A22> a untitled-ontology-163:A_cabin .
+
+<A23> a untitled-ontology-163:A_cabin .
+
+<A24> a untitled-ontology-163:A_cabin .
+
+<A25> a untitled-ontology-163:A_cabin .
+
+<A26> a untitled-ontology-163:A_cabin .
+
+<A27> a untitled-ontology-163:A_cabin .
+
+<A28> a untitled-ontology-163:A_cabin .
+
+<A29> a untitled-ontology-163:A_cabin .
+
+<A3> a untitled-ontology-163:A_cabin .
+
+<A30> a untitled-ontology-163:A_cabin .
+
+<A31> a untitled-ontology-163:A_cabin .
+
+<A32> a untitled-ontology-163:A_cabin .
+
+<A33> a untitled-ontology-163:A_cabin .
+
+<A34> a untitled-ontology-163:A_cabin .
+
+<A35> a untitled-ontology-163:A_cabin .
+
+<A36> a untitled-ontology-163:A_cabin .
+
+<A4> a untitled-ontology-163:A_cabin .
+
+<A5> a untitled-ontology-163:A_cabin .
+
+<A6> a untitled-ontology-163:A_cabin .
+
+<A7> a untitled-ontology-163:A_cabin .
+
+<A8> a untitled-ontology-163:A_cabin .
+
+<A9> a untitled-ontology-163:A_cabin .
+
+<B0> a untitled-ontology-163:B_cabin .
+
+<B1> a untitled-ontology-163:B_cabin .
+
+<B10> a untitled-ontology-163:B_cabin .
+
+<B100> a untitled-ontology-163:B_cabin .
+
+<B101> a untitled-ontology-163:B_cabin .
+
+<B11> a untitled-ontology-163:B_cabin .
+
+<B12> a untitled-ontology-163:B_cabin .
+
+<B14> a untitled-ontology-163:B_cabin .
+
+<B15> a untitled-ontology-163:B_cabin .
+
+<B16> a untitled-ontology-163:B_cabin .
+
+<B17> a untitled-ontology-163:B_cabin .
+
+<B18> a untitled-ontology-163:B_cabin .
+
+<B19> a untitled-ontology-163:B_cabin .
+
+<B2> a untitled-ontology-163:B_cabin .
+
+<B20> a untitled-ontology-163:B_cabin .
+
+<B21> a untitled-ontology-163:B_cabin .
+
+<B22> a untitled-ontology-163:B_cabin .
+
+<B23> a untitled-ontology-163:B_cabin .
+
+<B24> a untitled-ontology-163:B_cabin .
+
+<B25> a untitled-ontology-163:B_cabin .
+
+<B26> a untitled-ontology-163:B_cabin .
+
+<B27> a untitled-ontology-163:B_cabin .
+
+<B28> a untitled-ontology-163:B_cabin .
+
+<B29> a untitled-ontology-163:B_cabin .
+
+<B3> a untitled-ontology-163:B_cabin .
+
+<B30> a untitled-ontology-163:B_cabin .
+
+<B31> a untitled-ontology-163:B_cabin .
+
+<B32> a untitled-ontology-163:B_cabin .
+
+<B33> a untitled-ontology-163:B_cabin .
+
+<B34> a untitled-ontology-163:B_cabin .
+
+<B35> a untitled-ontology-163:B_cabin .
+
+<B36> a untitled-ontology-163:B_cabin .
+
+<B37> a untitled-ontology-163:B_cabin .
+
+<B38> a untitled-ontology-163:B_cabin .
+
+<B39> a untitled-ontology-163:B_cabin .
+
+<B4> a untitled-ontology-163:B_cabin .
+
+<B40> a untitled-ontology-163:B_cabin .
+
+<B41> a untitled-ontology-163:B_cabin .
+
+<B42> a untitled-ontology-163:B_cabin .
+
+<B43> a untitled-ontology-163:B_cabin .
+
+<B44> a untitled-ontology-163:B_cabin .
+
+<B45> a untitled-ontology-163:B_cabin .
+
+<B46> a untitled-ontology-163:B_cabin .
+
+<B47> a untitled-ontology-163:B_cabin .
+
+<B48> a untitled-ontology-163:B_cabin .
+
+<B49> a untitled-ontology-163:B_cabin .
+
+<B5> a untitled-ontology-163:B_cabin .
+
+<B50> a untitled-ontology-163:B_cabin .
+
+<B51> a untitled-ontology-163:B_cabin .
+
+<B52> a untitled-ontology-163:B_cabin .
+
+<B53> a untitled-ontology-163:B_cabin .
+
+<B54> a untitled-ontology-163:B_cabin .
+
+<B55> a untitled-ontology-163:B_cabin .
+
+<B56> a untitled-ontology-163:B_cabin .
+
+<B57> a untitled-ontology-163:B_cabin .
+
+<B58> a untitled-ontology-163:B_cabin .
+
+<B59> a untitled-ontology-163:B_cabin .
+
+<B6> a untitled-ontology-163:B_cabin .
+
+<B60> a untitled-ontology-163:B_cabin .
+
+<B61> a untitled-ontology-163:B_cabin .
+
+<B62> a untitled-ontology-163:B_cabin .
+
+<B63> a untitled-ontology-163:B_cabin .
+
+<B64> a untitled-ontology-163:B_cabin .
+
+<B65> a untitled-ontology-163:B_cabin .
+
+<B66> a untitled-ontology-163:B_cabin .
+
+<B67> a untitled-ontology-163:B_cabin .
+
+<B68> a untitled-ontology-163:B_cabin .
+
+<B69> a untitled-ontology-163:B_cabin .
+
+<B7> a untitled-ontology-163:B_cabin .
+
+<B70> a untitled-ontology-163:B_cabin .
+
+<B71> a untitled-ontology-163:B_cabin .
+
+<B72> a untitled-ontology-163:B_cabin .
+
+<B73> a untitled-ontology-163:B_cabin .
+
+<B74> a untitled-ontology-163:B_cabin .
+
+<B75> a untitled-ontology-163:B_cabin .
+
+<B76> a untitled-ontology-163:B_cabin .
+
+<B77> a untitled-ontology-163:B_cabin .
+
+<B78> a untitled-ontology-163:B_cabin .
+
+<B79> a untitled-ontology-163:B_cabin .
+
+<B8> a untitled-ontology-163:B_cabin .
+
+<B80> a untitled-ontology-163:B_cabin .
+
+<B81> a untitled-ontology-163:B_cabin .
+
+<B82> a untitled-ontology-163:B_cabin .
+
+<B83> a untitled-ontology-163:B_cabin .
+
+<B84> a untitled-ontology-163:B_cabin .
+
+<B85> a untitled-ontology-163:B_cabin .
+
+<B86> a untitled-ontology-163:B_cabin .
+
+<B87> a untitled-ontology-163:B_cabin .
+
+<B88> a untitled-ontology-163:B_cabin .
+
+<B89> a untitled-ontology-163:B_cabin .
+
+<B9> a untitled-ontology-163:B_cabin .
+
+<B90> a untitled-ontology-163:B_cabin .
+
+<B91> a untitled-ontology-163:B_cabin .
+
+<B92> a untitled-ontology-163:B_cabin .
+
+<B93> a untitled-ontology-163:B_cabin .
+
+<B94> a untitled-ontology-163:B_cabin .
+
+<B95> a untitled-ontology-163:B_cabin .
+
+<B96> a untitled-ontology-163:B_cabin .
+
+<B97> a untitled-ontology-163:B_cabin .
+
+<B98> a untitled-ontology-163:B_cabin .
+
+<B99> a untitled-ontology-163:B_cabin .
+
+<C0> a untitled-ontology-163:C_cabin .
+
+<C1> a untitled-ontology-163:C_cabin .
+
+<C10> a untitled-ontology-163:C_cabin .
+
+<C100> a untitled-ontology-163:C_cabin .
+
+<C101> a untitled-ontology-163:C_cabin .
+
+<C102> a untitled-ontology-163:C_cabin .
+
+<C103> a untitled-ontology-163:C_cabin .
+
+<C104> a untitled-ontology-163:C_cabin .
+
+<C105> a untitled-ontology-163:C_cabin .
+
+<C106> a untitled-ontology-163:C_cabin .
+
+<C107> a untitled-ontology-163:C_cabin .
+
+<C108> a untitled-ontology-163:C_cabin .
+
+<C109> a untitled-ontology-163:C_cabin .
+
+<C11> a untitled-ontology-163:C_cabin .
+
+<C110> a untitled-ontology-163:C_cabin .
+
+<C111> a untitled-ontology-163:C_cabin .
+
+<C112> a untitled-ontology-163:C_cabin .
+
+<C113> a untitled-ontology-163:C_cabin .
+
+<C114> a untitled-ontology-163:C_cabin .
+
+<C115> a untitled-ontology-163:C_cabin .
+
+<C116> a untitled-ontology-163:C_cabin .
+
+<C117> a untitled-ontology-163:C_cabin .
+
+<C118> a untitled-ontology-163:C_cabin .
+
+<C119> a untitled-ontology-163:C_cabin .
+
+<C12> a untitled-ontology-163:C_cabin .
+
+<C120> a untitled-ontology-163:C_cabin .
+
+<C121> a untitled-ontology-163:C_cabin .
+
+<C122> a untitled-ontology-163:C_cabin .
+
+<C123> a untitled-ontology-163:C_cabin .
+
+<C124> a untitled-ontology-163:C_cabin .
+
+<C125> a untitled-ontology-163:C_cabin .
+
+<C126> a untitled-ontology-163:C_cabin .
+
+<C127> a untitled-ontology-163:C_cabin .
+
+<C128> a untitled-ontology-163:C_cabin .
+
+<C129> a untitled-ontology-163:C_cabin .
+
+<C130> a untitled-ontology-163:C_cabin .
+
+<C131> a untitled-ontology-163:C_cabin .
+
+<C132> a untitled-ontology-163:C_cabin .
+
+<C133> a untitled-ontology-163:C_cabin .
+
+<C14> a untitled-ontology-163:C_cabin .
+
+<C15> a untitled-ontology-163:C_cabin .
+
+<C16> a untitled-ontology-163:C_cabin .
+
+<C17> a untitled-ontology-163:C_cabin .
+
+<C18> a untitled-ontology-163:C_cabin .
+
+<C19> a untitled-ontology-163:C_cabin .
+
+<C2> a untitled-ontology-163:C_cabin .
+
+<C20> a untitled-ontology-163:C_cabin .
+
+<C21> a untitled-ontology-163:C_cabin .
+
+<C22> a untitled-ontology-163:C_cabin .
+
+<C23> a untitled-ontology-163:C_cabin .
+
+<C24> a untitled-ontology-163:C_cabin .
+
+<C25> a untitled-ontology-163:C_cabin .
+
+<C26> a untitled-ontology-163:C_cabin .
+
+<C27> a untitled-ontology-163:C_cabin .
+
+<C28> a untitled-ontology-163:C_cabin .
+
+<C29> a untitled-ontology-163:C_cabin .
+
+<C3> a untitled-ontology-163:C_cabin .
+
+<C30> a untitled-ontology-163:C_cabin .
+
+<C31> a untitled-ontology-163:C_cabin .
+
+<C32> a untitled-ontology-163:C_cabin .
+
+<C33> a untitled-ontology-163:C_cabin .
+
+<C34> a untitled-ontology-163:C_cabin .
+
+<C35> a untitled-ontology-163:C_cabin .
+
+<C36> a untitled-ontology-163:C_cabin .
+
+<C37> a untitled-ontology-163:C_cabin .
+
+<C38> a untitled-ontology-163:C_cabin .
+
+<C39> a untitled-ontology-163:C_cabin .
+
+<C4> a untitled-ontology-163:C_cabin .
+
+<C40> a untitled-ontology-163:C_cabin .
+
+<C41> a untitled-ontology-163:C_cabin .
+
+<C42> a untitled-ontology-163:C_cabin .
+
+<C43> a untitled-ontology-163:C_cabin .
+
+<C44> a untitled-ontology-163:C_cabin .
+
+<C45> a untitled-ontology-163:C_cabin .
+
+<C46> a untitled-ontology-163:C_cabin .
+
+<C47> a untitled-ontology-163:C_cabin .
+
+<C48> a untitled-ontology-163:C_cabin .
+
+<C49> a untitled-ontology-163:C_cabin .
+
+<C5> a untitled-ontology-163:C_cabin .
+
+<C50> a untitled-ontology-163:C_cabin .
+
+<C51> a untitled-ontology-163:C_cabin .
+
+<C52> a untitled-ontology-163:C_cabin .
+
+<C53> a untitled-ontology-163:C_cabin .
+
+<C54> a untitled-ontology-163:C_cabin .
+
+<C55> a untitled-ontology-163:C_cabin .
+
+<C56> a untitled-ontology-163:C_cabin .
+
+<C57> a untitled-ontology-163:C_cabin .
+
+<C58> a untitled-ontology-163:C_cabin .
+
+<C59> a untitled-ontology-163:C_cabin .
+
+<C6> a untitled-ontology-163:C_cabin .
+
+<C60> a untitled-ontology-163:C_cabin .
+
+<C61> a untitled-ontology-163:C_cabin .
+
+<C62> a untitled-ontology-163:C_cabin .
+
+<C63> a untitled-ontology-163:C_cabin .
+
+<C64> a untitled-ontology-163:C_cabin .
+
+<C65> a untitled-ontology-163:C_cabin .
+
+<C66> a untitled-ontology-163:C_cabin .
+
+<C67> a untitled-ontology-163:C_cabin .
+
+<C68> a untitled-ontology-163:C_cabin .
+
+<C69> a untitled-ontology-163:C_cabin .
+
+<C7> a untitled-ontology-163:C_cabin .
+
+<C70> a untitled-ontology-163:C_cabin .
+
+<C71> a untitled-ontology-163:C_cabin .
+
+<C72> a untitled-ontology-163:C_cabin .
+
+<C73> a untitled-ontology-163:C_cabin .
+
+<C74> a untitled-ontology-163:C_cabin .
+
+<C75> a untitled-ontology-163:C_cabin .
+
+<C76> a untitled-ontology-163:C_cabin .
+
+<C77> a untitled-ontology-163:C_cabin .
+
+<C78> a untitled-ontology-163:C_cabin .
+
+<C79> a untitled-ontology-163:C_cabin .
+
+<C8> a untitled-ontology-163:C_cabin .
+
+<C80> a untitled-ontology-163:C_cabin .
+
+<C81> a untitled-ontology-163:C_cabin .
+
+<C82> a untitled-ontology-163:C_cabin .
+
+<C83> a untitled-ontology-163:C_cabin .
+
+<C84> a untitled-ontology-163:C_cabin .
+
+<C85> a untitled-ontology-163:C_cabin .
+
+<C86> a untitled-ontology-163:C_cabin .
+
+<C87> a untitled-ontology-163:C_cabin .
+
+<C88> a untitled-ontology-163:C_cabin .
+
+<C89> a untitled-ontology-163:C_cabin .
+
+<C9> a untitled-ontology-163:C_cabin .
+
+<C90> a untitled-ontology-163:C_cabin .
+
+<C91> a untitled-ontology-163:C_cabin .
+
+<C92> a untitled-ontology-163:C_cabin .
+
+<C93> a untitled-ontology-163:C_cabin .
+
+<C94> a untitled-ontology-163:C_cabin .
+
+<C95> a untitled-ontology-163:C_cabin .
+
+<C96> a untitled-ontology-163:C_cabin .
+
+<C97> a untitled-ontology-163:C_cabin .
+
+<C98> a untitled-ontology-163:C_cabin .
+
+<C99> a untitled-ontology-163:C_cabin .
+
+<D0> a untitled-ontology-163:D_cabin .
+
+<D1> a untitled-ontology-163:D_cabin .
+
+<D10> a untitled-ontology-163:D_cabin .
+
+<D11> a untitled-ontology-163:D_cabin .
+
+<D12> a untitled-ontology-163:D_cabin .
+
+<D14> a untitled-ontology-163:D_cabin .
+
+<D15> a untitled-ontology-163:D_cabin .
+
+<D16> a untitled-ontology-163:D_cabin .
+
+<D17> a untitled-ontology-163:D_cabin .
+
+<D18> a untitled-ontology-163:D_cabin .
+
+<D19> a untitled-ontology-163:D_cabin .
+
+<D2> a untitled-ontology-163:D_cabin .
+
+<D20> a untitled-ontology-163:D_cabin .
+
+<D21> a untitled-ontology-163:D_cabin .
+
+<D22> a untitled-ontology-163:D_cabin .
+
+<D23> a untitled-ontology-163:D_cabin .
+
+<D24> a untitled-ontology-163:D_cabin .
+
+<D25> a untitled-ontology-163:D_cabin .
+
+<D26> a untitled-ontology-163:D_cabin .
+
+<D27> a untitled-ontology-163:D_cabin .
+
+<D28> a untitled-ontology-163:D_cabin .
+
+<D29> a untitled-ontology-163:D_cabin .
+
+<D3> a untitled-ontology-163:D_cabin .
+
+<D30> a untitled-ontology-163:D_cabin .
+
+<D31> a untitled-ontology-163:D_cabin .
+
+<D32> a untitled-ontology-163:D_cabin .
+
+<D33> a untitled-ontology-163:D_cabin .
+
+<D34> a untitled-ontology-163:D_cabin .
+
+<D35> a untitled-ontology-163:D_cabin .
+
+<D36> a untitled-ontology-163:D_cabin .
+
+<D37> a untitled-ontology-163:D_cabin .
+
+<D38> a untitled-ontology-163:D_cabin .
+
+<D39> a untitled-ontology-163:D_cabin .
+
+<D4> a untitled-ontology-163:D_cabin .
+
+<D40> a untitled-ontology-163:D_cabin .
+
+<D41> a untitled-ontology-163:D_cabin .
+
+<D42> a untitled-ontology-163:D_cabin .
+
+<D43> a untitled-ontology-163:D_cabin .
+
+<D44> a untitled-ontology-163:D_cabin .
+
+<D45> a untitled-ontology-163:D_cabin .
+
+<D46> a untitled-ontology-163:D_cabin .
+
+<D47> a untitled-ontology-163:D_cabin .
+
+<D48> a untitled-ontology-163:D_cabin .
+
+<D49> a untitled-ontology-163:D_cabin .
+
+<D5> a untitled-ontology-163:D_cabin .
+
+<D6> a untitled-ontology-163:D_cabin .
+
+<D7> a untitled-ontology-163:D_cabin .
+
+<D8> a untitled-ontology-163:D_cabin .
+
+<D9> a untitled-ontology-163:D_cabin .
+
+<E0> a untitled-ontology-163:E_cabin .
+
+<E1> a untitled-ontology-163:E_cabin .
+
+<E10> a untitled-ontology-163:E_cabin .
+
+<E100> a untitled-ontology-163:E_cabin .
+
+<E101> a untitled-ontology-163:E_cabin .
+
+<E102> a untitled-ontology-163:E_cabin .
+
+<E103> a untitled-ontology-163:E_cabin .
+
+<E104> a untitled-ontology-163:E_cabin .
+
+<E105> a untitled-ontology-163:E_cabin .
+
+<E106> a untitled-ontology-163:E_cabin .
+
+<E11> a untitled-ontology-163:E_cabin .
+
+<E12> a untitled-ontology-163:E_cabin .
+
+<E14> a untitled-ontology-163:E_cabin .
+
+<E15> a untitled-ontology-163:E_cabin .
+
+<E16> a untitled-ontology-163:E_cabin .
+
+<E17> a untitled-ontology-163:E_cabin .
+
+<E18> a untitled-ontology-163:E_cabin .
+
+<E19> a untitled-ontology-163:E_cabin .
+
+<E2> a untitled-ontology-163:E_cabin .
+
+<E20> a untitled-ontology-163:E_cabin .
+
+<E21> a untitled-ontology-163:E_cabin .
+
+<E22> a untitled-ontology-163:E_cabin .
+
+<E23> a untitled-ontology-163:E_cabin .
+
+<E24> a untitled-ontology-163:E_cabin .
+
+<E25> a untitled-ontology-163:E_cabin .
+
+<E26> a untitled-ontology-163:E_cabin .
+
+<E27> a untitled-ontology-163:E_cabin .
+
+<E28> a untitled-ontology-163:E_cabin .
+
+<E29> a untitled-ontology-163:E_cabin .
+
+<E3> a untitled-ontology-163:E_cabin .
+
+<E30> a untitled-ontology-163:E_cabin .
+
+<E31> a untitled-ontology-163:E_cabin .
+
+<E32> a untitled-ontology-163:E_cabin .
+
+<E33> a untitled-ontology-163:E_cabin .
+
+<E34> a untitled-ontology-163:E_cabin .
+
+<E35> a untitled-ontology-163:E_cabin .
+
+<E36> a untitled-ontology-163:E_cabin .
+
+<E37> a untitled-ontology-163:E_cabin .
+
+<E38> a untitled-ontology-163:E_cabin .
+
+<E39> a untitled-ontology-163:E_cabin .
+
+<E4> a untitled-ontology-163:E_cabin .
+
+<E40> a untitled-ontology-163:E_cabin .
+
+<E41> a untitled-ontology-163:E_cabin .
+
+<E42> a untitled-ontology-163:E_cabin .
+
+<E43> a untitled-ontology-163:E_cabin .
+
+<E44> a untitled-ontology-163:E_cabin .
+
+<E45> a untitled-ontology-163:E_cabin .
+
+<E46> a untitled-ontology-163:E_cabin .
+
+<E47> a untitled-ontology-163:E_cabin .
+
+<E48> a untitled-ontology-163:E_cabin .
+
+<E49> a untitled-ontology-163:E_cabin .
+
+<E5> a untitled-ontology-163:E_cabin .
+
+<E50> a untitled-ontology-163:E_cabin .
+
+<E51> a untitled-ontology-163:E_cabin .
+
+<E52> a untitled-ontology-163:E_cabin .
+
+<E53> a untitled-ontology-163:E_cabin .
+
+<E54> a untitled-ontology-163:E_cabin .
+
+<E55> a untitled-ontology-163:E_cabin .
+
+<E56> a untitled-ontology-163:E_cabin .
+
+<E57> a untitled-ontology-163:E_cabin .
+
+<E58> a untitled-ontology-163:E_cabin .
+
+<E59> a untitled-ontology-163:E_cabin .
+
+<E6> a untitled-ontology-163:E_cabin .
+
+<E60> a untitled-ontology-163:E_cabin .
+
+<E61> a untitled-ontology-163:E_cabin .
+
+<E62> a untitled-ontology-163:E_cabin .
+
+<E63> a untitled-ontology-163:E_cabin .
+
+<E64> a untitled-ontology-163:E_cabin .
+
+<E65> a untitled-ontology-163:E_cabin .
+
+<E66> a untitled-ontology-163:E_cabin .
+
+<E67> a untitled-ontology-163:E_cabin .
+
+<E68> a untitled-ontology-163:E_cabin .
+
+<E69> a untitled-ontology-163:E_cabin .
+
+<E7> a untitled-ontology-163:E_cabin .
+
+<E70> a untitled-ontology-163:E_cabin .
+
+<E71> a untitled-ontology-163:E_cabin .
+
+<E72> a untitled-ontology-163:E_cabin .
+
+<E73> a untitled-ontology-163:E_cabin .
+
+<E74> a untitled-ontology-163:E_cabin .
+
+<E75> a untitled-ontology-163:E_cabin .
+
+<E76> a untitled-ontology-163:E_cabin .
+
+<E77> a untitled-ontology-163:E_cabin .
+
+<E78> a untitled-ontology-163:E_cabin .
+
+<E79> a untitled-ontology-163:E_cabin .
+
+<E8> a untitled-ontology-163:E_cabin .
+
+<E80> a untitled-ontology-163:E_cabin .
+
+<E81> a untitled-ontology-163:E_cabin .
+
+<E82> a untitled-ontology-163:E_cabin .
+
+<E83> a untitled-ontology-163:E_cabin .
+
+<E84> a untitled-ontology-163:E_cabin .
+
+<E85> a untitled-ontology-163:E_cabin .
+
+<E86> a untitled-ontology-163:E_cabin .
+
+<E87> a untitled-ontology-163:E_cabin .
+
+<E88> a untitled-ontology-163:E_cabin .
+
+<E89> a untitled-ontology-163:E_cabin .
+
+<E9> a untitled-ontology-163:E_cabin .
+
+<E90> a untitled-ontology-163:E_cabin .
+
+<E91> a untitled-ontology-163:E_cabin .
+
+<E92> a untitled-ontology-163:E_cabin .
+
+<E93> a untitled-ontology-163:E_cabin .
+
+<E94> a untitled-ontology-163:E_cabin .
+
+<E95> a untitled-ontology-163:E_cabin .
+
+<E96> a untitled-ontology-163:E_cabin .
+
+<E97> a untitled-ontology-163:E_cabin .
+
+<E98> a untitled-ontology-163:E_cabin .
+
+<E99> a untitled-ontology-163:E_cabin .
+
+untitled-ontology-163:B_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:Boat_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:C_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:D_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:E_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:F_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:F_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:FirstClass a untitled-ontology-163:Class,
+        untitled-ontology-163:cabin_class,
+        owl:NamedIndividual ;
+    untitled-ontology-163:arg2_cabin_class untitled-ontology-163:FirstClass .
+
+untitled-ontology-163:G_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:HL_lifeboat3 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:HL_lifeboat4 a untitled-ontology-163:HW_lifeboat,
+        owl:NamedIndividual .
+
+untitled-ontology-163:T_engineer_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+untitled-ontology-163:T_first_class_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+untitled-ontology-163:T_officer_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+untitled-ontology-163:T_second_class_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:T_cabin .
+
+untitled-ontology-163:arg3 a owl:ObjectProperty .
+
+untitled-ontology-163:orlop_decks a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:tank_top a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:A_Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Deck .
+
+untitled-ontology-163:BoatLocation a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Location .
+
+untitled-ontology-163:Location a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:distance a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:association .
+
+untitled-ontology-163:emergency_cutter a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Lifeboat .
+
+untitled-ontology-163:nb_relatives a owl:DatatypeProperty ;
+    rdfs:domain untitled-ontology-163:Person ;
+    rdfs:range xsd:int .
+
+untitled-ontology-163:Port a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Location .
+
+untitled-ontology-163:Ticket a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:cabin_class a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:association .
+
+untitled-ontology-163:travel a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:association .
+
+untitled-ontology-163:Class a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:Lifeboat a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:collapsible_lifeboat a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Lifeboat .
+
+untitled-ontology-163:Distance a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:T_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:arg1 a owl:ObjectProperty .
+
+untitled-ontology-163:arg2 a owl:ObjectProperty .
+
+untitled-ontology-163:association a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+untitled-ontology-163:Person a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:Deck a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Ship_Zone .
+
+untitled-ontology-163:Entity a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+untitled-ontology-163:Cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:HW_lifeboat a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Lifeboat .
+
+untitled-ontology-163:A_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:Ship_Zone a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Entity .
+
+untitled-ontology-163:D_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:B_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:E_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:C_cabin a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:Cabin .
+
+untitled-ontology-163:Starboard a untitled-ontology-163:BoatLocation,
+        owl:NamedIndividual .
+
+untitled-ontology-163:PortSide a untitled-ontology-163:BoatLocation,
+        owl:NamedIndividual .
+
+untitled-ontology-163:location_on_boat a owl:Class ;
+    rdfs:subClassOf untitled-ontology-163:association .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( untitled-ontology-163:A_Deck untitled-ontology-163:B_Deck untitled-ontology-163:Boat_Deck untitled-ontology-163:C_Deck untitled-ontology-163:D_Deck untitled-ontology-163:E_Deck untitled-ontology-163:F_Deck untitled-ontology-163:G_Deck untitled-ontology-163:orlop_decks untitled-ontology-163:tank_top ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( untitled-ontology-163:A_cabin untitled-ontology-163:B_cabin untitled-ontology-163:C_cabin untitled-ontology-163:D_cabin untitled-ontology-163:E_cabin untitled-ontology-163:F_cabin untitled-ontology-163:T_cabin ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( untitled-ontology-163:T_engineer_cabin untitled-ontology-163:T_first_class_cabin untitled-ontology-163:T_officer_cabin untitled-ontology-163:T_second_class_cabin ) .
+
