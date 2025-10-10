@@ -17,6 +17,7 @@ The model is Graph Neural Network based architecture to get output predictions f
 The code works with two data sources - the Titanic data for suvival prediction, and the TCGA gene expression data for cancer classification
 
 TCGA dataset can be downloaded from [GDC portal](https://portal.gdc.cancer.gov/). 
+Titanic dataset can be downloaded from [Kaggle Titanic Challenge](https://www.kaggle.com/competitions/titanic/data). 
 
 ## Usage
 
@@ -27,7 +28,7 @@ data/
 ├── titanic/
 │ ├── ontology_file # (ttl, rdf, or owl format)
 │ └── feature-to-class_map (json)
-  └── titanic data (csv)
+  └── titanic.csv # Download this file from https://www.kaggle.com/competitions/titanic/data
 ├── tcga/
 │ ├── matrix_connection_truncated.csv
 │ ├── tcga.npz
