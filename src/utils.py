@@ -13,6 +13,7 @@
    # See the License for the specific language governing permissions and
    # limitations under the License.
 
+import random
 import pandas as pd
 import numpy as np
 import argparse
@@ -184,9 +185,19 @@ def load_data(dataset_path, device, data_config):
 
         elif "titanic" in dataset_path.lower():
             data = pd.read_csv(os.path.join(dataset_path, "titanic.csv"))
+
             # Select relevant features
             features = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked', 'CabinClass']
             data.drop(columns=['PassengerId', 'Name', 'Ticket'], inplace=True)
+
+            #Fill missing values in order not to "lose" too many lines:
+            data[["Age"]] = data[["Age"]].fillna(value = -1)
+            data[["Cabin"]] = data[["Cabin"]].fillna(value = "Unknown")
+            data[["Embarked"]] = data[["Embarked"]].fillna(value = "Unknown")
+#            null_data = data[data.isnull().any(axis=1)]
+#            print("null_data :")
+#            print(str(null_data))
+
             data.dropna(inplace=True)
 
             targets = data.pop('Survived')
@@ -273,9 +284,15 @@ def load_data(dataset_path, device, data_config):
 
                     data_list.append(data)
 
-                train_split = 0.7
-                train_loader = DataLoader(data_list[:int(train_split*len(data_list))], batch_size=16, shuffle=True)
-                test_loader = DataLoader(data_list[int(train_split*len(data_list)):], batch_size=16, shuffle=False)
+
+                random.shuffle(data_list)
+                if n_samples:
+                    train_loader = DataLoader(data_list[:n_samples], batch_size=16, shuffle=True)
+                    test_loader = DataLoader(data_list[n_samples:], batch_size=16, shuffle=False)
+                else:
+                    train_split = 0.7
+                    train_loader = DataLoader(data_list[:int(train_split*len(data_list))], batch_size=16, shuffle=True)
+                    test_loader = DataLoader(data_list[int(train_split*len(data_list)):], batch_size=16, shuffle=False)
                 ontology_node_list = all_classes
 
             except FileNotFoundError:

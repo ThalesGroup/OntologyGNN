@@ -54,6 +54,7 @@ if __name__ == "__main__":
     logging.info(f"Using device: {device}")
     logging.info(f"Hyperparameters: {config['hyperparams']}")
     logging.info(f"Model config: {config['model']}")
+    logging.info(f"Data: {config['data']}")
 
     repeat_analysis = config['experiment'].get('repeat_analysis', 1)
     cumulative_node_freq = Counter()
@@ -61,6 +62,17 @@ if __name__ == "__main__":
 
     for run_idx in range(repeat_analysis):
         logging.info(f"\n==================== Run {run_idx + 1} / {repeat_analysis} ====================")
+
+        # Load the data.
+        # Reloading the data at each run enable to randomly select the training/test data 
+        # and avoid non pertinent impotant nodes selection for "small" test datasets
+        if data_specs['shuffle_datasets']:
+            print("Shuffle the datasets")
+            train_loader, test_loader, edge_index, ontology_node_list = load_data(
+                    data_directory,
+                    device=device,
+                    data_config=data_specs
+                )
 
         # Train the model
         logging.info("Starting training...")
@@ -126,11 +138,13 @@ if __name__ == "__main__":
     # Final result logging after all runs
     sorted_nodes = sorted(cumulative_node_freq.items(), key=lambda item: item[1], reverse=True)
     logging.info(f"\n=== Top nodes across {repeat_analysis} runs ===")
+    logging.info(f"   {len(sorted_nodes)} nodes in the most important community")
     for node_name, freq in sorted_nodes[:20]:
         logging.info(f"  {node_name}: appears {freq} times")
 
     sorted_edges = sorted(cumulative_edge_freq.items(), key=lambda item: item[1], reverse=True)
     logging.info(f"\n=== Top edges across {repeat_analysis} runs ===")
+    logging.info(f"   {len(sorted_edges)} edges in the most important community")
     for (i, j), count in sorted_edges[:20]:
         name_i = ontology_node_list[i]
         name_j = ontology_node_list[j]

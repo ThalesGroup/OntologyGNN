@@ -4,6 +4,7 @@ data:
   n_samples:
   ontology_file: "titanic_with_individual_cabins_by_side.ttl"
   feature_class_map: "mapping_titanic_with_individual_cabins_by_side.json"
+  shuffle_datasets: True
 
 model:
   name: "OntologyCommunityDetection"
@@ -21,8 +22,8 @@ training:
 
 experiment:
   name: "exp1_community_gnn"
-  interpretation_label: 0
+  interpretation_label: 1
   log_dir: "logs/"
   save_log: True
   save_dir: "checkpoints/"
-  repeat_analysis: 10
+  repeat_analysis: 5
