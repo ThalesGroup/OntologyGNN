@@ -1,4 +1,6 @@
 data/
+!data/titanic/*.rdf
+!data/titanic/*.ttl
 
 # Dotted as white-list
 .*
