@@ -41,27 +41,6 @@ class OntologyDataLoader:
             return uri.split("#")[-1] if "#" in uri else uri.split("/")[-1]
         return str(uri).split("#")[-1] if "#" in str(uri) else str(uri).split("/")[-1]
 
-    @staticmethod
-    def load_rdf(owl_filepath, complete):
-        onto = get_ontology(owl_filepath).load()
-        G = nx.DiGraph()
-        for cls in onto.classes():
-            G.add_node(cls.name)
-            for sub_cls in cls.subclasses():
-                G.add_node(sub_cls.name)
-                G.add_edge(sub_cls.name, cls.name, label="is-a")
-            if complete:
-                for i in cls.instances():
-                    G.add_node(i.name)
-                    G.add_edge(i.name, cls.name, label="instance")
-                    for prop in i.get_properties():
-                        for value in prop[i]:
-                            G.add_node(str(value))
-                            G.add_edge(str(value), i.name, label=prop.python_name)
-        print("Loaded", filepath, "with owlready2")
-        if DEBUG:
-            print(G)
-        return G
 
     @staticmethod
     def load_ontology(filepath, complete=True):
