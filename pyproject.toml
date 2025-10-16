@@ -1,0 +1,29 @@
+[project]
+name = "ontologygnn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "networkx==3.4.2",
+    "numpy==2.0.2",
+    "obonet==1.1.1",
+    "owlready2==0.47",
+    "pandas==2.2.2",
+    "pypickle>=2.0.1",
+    "pyyaml==6.0.2",
+    "rdflib==7.1.4",
+    "scikit-learn>=1.7.2",
+    "torch==2.7.0",
+    "torch-geometric>=2.7.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+]
+
+
+[tool.ruff.lint]
+select = ["S"]

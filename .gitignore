@@ -1,8 +1,6 @@
-data/tcga/
-data/TCGA/
-files/
-script/TCGA_data/
-.ipynb_checkpoints/
-scripts/__pycache__/
-log/
+data/
 
+# Dotted as white-list
+.*
+!.github
+!.gitignore

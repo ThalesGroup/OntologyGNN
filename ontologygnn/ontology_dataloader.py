@@ -1,35 +1,35 @@
-   # Copyright 2024 Thales Group
+# Copyright 2024 Thales Group
 
-   # Licensed under the Apache License, Version 2.0 (the "License");
-   # you may not use this file except in compliance with the License.
-   # You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 
-   #     http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 
-   # Unless required by applicable law or agreed to in writing, software
-   # distributed under the License is distributed on an "AS IS" BASIS,
-   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   # See the License for the specific language governing permissions and
-   # limitations under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 # example run script
 # python ontology_dataloader titanic_ontology.obo --connect_features 'Cabin' 'Age' --save ontology ontology_data_connections.json  (allows the user to connect specified features to classes and then save the connections)
 
 
-import torch
-import obonet
-import networkx as nx
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from owlready2 import *
-import json
 import argparse
+import json
 from collections import defaultdict
-from urllib.parse import urlparse
-from rdflib import Graph as RDFGraph
 
-DEBUG=True
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+import obonet
+import pandas as pd
+import torch
+from owlready2 import *
+
+DEBUG = True
+
 
 class OntologyDataLoader:
     def __init__(self, filepath):
@@ -63,7 +63,6 @@ class OntologyDataLoader:
             print(G)
         return G
 
-
     @staticmethod
     def load_ontology(filepath, complete=True):
         if filepath.endswith(".obo"):
@@ -75,41 +74,25 @@ class OntologyDataLoader:
                 print(f"Error loading .obo file: {e}")
                 return None
 
-        elif filepath.endswith(".ttl"):
-            try:
-                from rdflib import Graph
-                g = Graph()
-                g.parse(filepath, format="turtle")
-                owl_filepath = "".join([filepath[0:-4], '.rdf'])
-                #print("TTL ontology : "+filepath)
-                #print("RDF ontology : "+owl_filepath)
-                g.serialize(destination=owl_filepath, format='xml')
+        elif filepath.endswith((".ttl", ".owl", ".rdf", ".xml")):
+            owl_filepath = ""
+            if filepath.endswith(".ttl"):
+                try:
+                    from rdflib import Graph
 
-                onto = get_ontology(owl_filepath).load()
-                G = nx.DiGraph()
-                for cls in onto.classes():
-                    G.add_node(cls.name)
-                    for sub_cls in cls.subclasses():
-                        G.add_node(sub_cls.name)
-                        G.add_edge(sub_cls.name, cls.name, label="is-a")
-                    if complete:
-                        for i in cls.instances():
-                            G.add_node(i.name)
-                            G.add_edge(i.name, cls.name, label="instance")
-                            for prop in i.get_properties():
-                                for value in prop[i]:
-                                    G.add_node(str(value))
-                                    G.add_edge(str(value), i.name, label=prop.python_name)
-                print("Loaded", filepath, "with owlready2")
-                if DEBUG:
-                    print(G)
-                    #print(G.nodes)
-                return G
-            except Exception as e:
-                print(f"Error loading .ttl file with rdflib: {e}")
-                return None
+                    g = Graph()
+                    g.parse(filepath, format="turtle")
+                    owl_filepath = "".join([filepath[0:-4], ".rdf"])
+                    # print("TTL ontology : "+filepath)
+                    # print("RDF ontology : "+owl_filepath)
+                    g.serialize(destination=owl_filepath, format="xml")
 
-        elif filepath.endswith((".owl", ".rdf", ".xml")):
+                except Exception as e:
+                    print(f"Error loading .ttl file with rdflib: {e}")
+                    return None
+            else:
+                owl_filepath = filepath
+
             try:
                 onto = get_ontology(owl_filepath).load()
                 G = nx.DiGraph()
@@ -125,7 +108,9 @@ class OntologyDataLoader:
                             for prop in i.get_properties():
                                 for value in prop[i]:
                                     G.add_node(str(value))
-                                    G.add_edge(str(value), i.name, label=prop.python_name)
+                                    G.add_edge(
+                                        str(value), i.name, label=prop.python_name,
+                                    )
                 print("Loaded", filepath, "with owlready2")
                 if DEBUG:
                     print(G)
@@ -138,17 +123,18 @@ class OntologyDataLoader:
             print("Unsupported file format.")
             return None
 
-
     def add_edge(self, parent_node, child_node, label=None):
         if self.ontology.has_edge(parent_node, child_node):
             print(f"Edge between {parent_node} and {child_node} already exists.")
         else:
             self.ontology.add_edge(parent_node, child_node, label=label)
-            print(f"Added edge between {parent_node} and {child_node} with label '{label}'")
+            print(
+                f"Added edge between {parent_node} and {child_node} with label '{label}'",
+            )
 
     def remove_edge(self, parent_node, child_node):
         self.ontology.remove_edge(parent_node, child_node)
-        print('Removed edge between', parent_node, 'and', child_node)
+        print("Removed edge between", parent_node, "and", child_node)
 
     def get_adjacency_matrix(self):
         if self.ontology is None:
@@ -166,15 +152,22 @@ class OntologyDataLoader:
         G = self.ontology
         pos = nx.spring_layout(G, seed=42)
         plt.figure(figsize=(15, 15))
-        nx.draw(G, pos, with_labels=True, node_size=300, node_color='lightblue', font_size=10, font_weight="bold", arrows=True)
+        nx.draw(
+            G,
+            pos,
+            with_labels=True,
+            node_size=300,
+            node_color="lightblue",
+            font_size=10,
+            font_weight="bold",
+            arrows=True,
+        )
         edge_labels = nx.get_edge_attributes(G, "label")
         nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
         plt.show()
 
     def get_feature_node_map(self, features):
-
         """Returns the (n_features, n_nodes) dimensional matrix denoting connections of given features to other nodes in the ontology"""
-
         if features is None:
             return None
 
@@ -186,7 +179,6 @@ class OntologyDataLoader:
         return feature_node_map
 
     def get_node_map(self, features):
-
         """Returns the (n_nodes, n_nodes) dimensional matrix denoting connections of nodes (classes) to other nodes in the ontology"""
         """It doesn't include the connections to features (if any specified by the user)"""
 
@@ -216,6 +208,7 @@ class OntologyDataLoader:
 
         Args:
             features: A list of feature names to be connected.
+
         """
         if self.ontology is None:
             print("No ontology loaded.")
@@ -228,17 +221,24 @@ class OntologyDataLoader:
 
         for feature in features:
             print(f"\nConnecting: {feature}")
-            selected_indices = input("Enter the indices of nodes to connect, separated by commas: ")
-            selected_indices = [int(idx.strip()) for idx in selected_indices.split(',')]
+            selected_indices = input(
+                "Enter the indices of nodes to connect, separated by commas: ",
+            )
+            selected_indices = [int(idx.strip()) for idx in selected_indices.split(",")]
             for idx in selected_indices:
                 if 0 <= idx < len(nodes):
                     self.add_edge(feature, nodes[idx], label="feature-to-node")
                 else:
                     print(f"Invalid index: {idx}")
 
-    def save_connections_with_categories(self, targets, features, filename="connections_with_categories.json"):
-        connections = {"targets": {}, "features to classes connections": {}, 
-        "classes to classes connections": {}}
+    def save_connections_with_categories(
+        self, targets, features, filename="connections_with_categories.json",
+    ):
+        connections = {
+            "targets": {},
+            "features to classes connections": {},
+            "classes to classes connections": {},
+        }
 
         for node in self.ontology.nodes():
             connected_nodes = list(self.ontology.successors(node))
@@ -254,12 +254,11 @@ class OntologyDataLoader:
         print(f"Connections with categories saved to {filename}")
 
     def connect_data_with_ontology(self, features_dict):
-        
         # G = self.load_ontology()
         edges = self.ontology.edges(data=True)
 
         relation_matrix = [
-            (src, dst, data['label'])
+            (src, dst, data["label"])
             for src, dst, data in edges
             # if data.get('label') == 'instance'
         ]
@@ -267,13 +266,13 @@ class OntologyDataLoader:
         # Step 1: Map instance -> set of classes
         instance_to_classes = defaultdict(set)
         for instance, cls, label in relation_matrix:
-            if label == 'instance':
+            if label == "instance":
                 instance_to_classes[instance.lower()].add(cls)
 
         # Step 2: Extract all unique classes from the relation matrix (subject/object in non-'instance' triples)
         all_classes = set()
         for subj, obj, label in relation_matrix:
-            if label != 'instance':
+            if label != "instance":
                 all_classes.update([subj, obj])
 
         class_features_mapping = defaultdict(set)
@@ -296,9 +295,7 @@ class OntologyDataLoader:
             features = class_features_mapping.get(cls, set())
             final_mapping[cls] = sorted(features)
 
-        class_feature_map = {
-        "class_features_mapping": final_mapping
-          }
+        class_feature_map = {"class_features_mapping": final_mapping}
 
         # Get class relationships among them
         # Step 1: Get list of classes in the order of class_features_mapping keys
@@ -308,27 +305,41 @@ class OntologyDataLoader:
         # Step 2: Extract class-to-class relationships from non-'instance' entries
         alledges = set()
         for subj, obj, label in relation_matrix:
-            if label != 'instance' and subj in class_to_index and obj in class_to_index:
+            if label != "instance" and subj in class_to_index and obj in class_to_index:
                 i, j = class_to_index[subj], class_to_index[obj]
                 alledges.add((i, j))
 
         # Step 3: Return sorted list of unique edges
-        class_relations =  {
-            "class_relationships": sorted(list(alledges))
-        }
+        class_relations = {"class_relationships": sorted(list(alledges))}
 
         return class_feature_map, class_relations
 
 
 def main():
     parser = argparse.ArgumentParser(description="Ontology Data Loader and Processor")
-    parser.add_argument("filepath", type=str, help="Path to the ontology file (.owl, .rdf, .xml, .obo)")
-    parser.add_argument("--visualize", action="store_true", help="Visualize the ontology graph")
-    parser.add_argument("--save", type=str, help="Save the connections with categories to a JSON file")
-    parser.add_argument("--connect_features", nargs='+', help="Specify feature names to connect to nodes interactively")
-    parser.add_argument("--connect_classes", nargs='+', help="Specify classes names to connect to nodes interactively")
-    parser.add_argument("--add_target", nargs='+', help="Specify target feature")
-    parser.add_argument("--data", required=False, help="Specify the ontology based data file path")
+    parser.add_argument(
+        "filepath", type=str, help="Path to the ontology file (.owl, .rdf, .xml, .obo)",
+    )
+    parser.add_argument(
+        "--visualize", action="store_true", help="Visualize the ontology graph",
+    )
+    parser.add_argument(
+        "--save", type=str, help="Save the connections with categories to a JSON file",
+    )
+    parser.add_argument(
+        "--connect_features",
+        nargs="+",
+        help="Specify feature names to connect to nodes interactively",
+    )
+    parser.add_argument(
+        "--connect_classes",
+        nargs="+",
+        help="Specify classes names to connect to nodes interactively",
+    )
+    parser.add_argument("--add_target", nargs="+", help="Specify target feature")
+    parser.add_argument(
+        "--data", required=False, help="Specify the ontology based data file path",
+    )
     args = parser.parse_args()
 
     loader = OntologyDataLoader(args.filepath)
@@ -343,19 +354,18 @@ def main():
         feature_unique_items = {}
         for col in data.columns:
             feature_unique_items[col] = data[col].unique().tolist()
-        
-        all_relations = loader.connect_data_with_ontology(feature_unique_items)
 
+        all_relations = loader.connect_data_with_ontology(feature_unique_items)
 
     if args.visualize:
         loader.visualize_ontology()
 
     if args.connect_features:
-        print('connecting features to classes')
+        print("connecting features to classes")
         loader.connect_features_to_nodes(args.connect_features)
 
     if args.connect_classes:
-        print('connecting classes to other classes')
+        print("connecting classes to other classes")
         loader.connect_features_to_nodes(args.connect_classes)
 
     if args.save:
@@ -364,7 +374,7 @@ def main():
         else:
             targets = []
         if args.connect_features:
-            features = args.connect_features 
+            features = args.connect_features
         else:
             features = []
         loader.save_connections_with_categories(targets, features, args.save)
