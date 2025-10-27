@@ -152,7 +152,7 @@ if __name__ == "__main__":
         logging.info(f"  ({name_i}, {name_j}): appears in {count} samples")
 
     # Save final model and results from last run
-    save = config["experiment"]["save"]
+    save = config["experiment"]["save_log"]
     if save:
         save_dir = config["experiment"]["save_dir"]
         os.makedirs(save_dir, exist_ok=True)

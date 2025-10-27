@@ -1,10 +1,17 @@
 # OntologyGNN
 
-Interpretable GNN model for ontology based data.
+Implementation of an interpretable GNN model for ontology based data derived from the [GraphGoNet](https://forge.ibisc.univ-evry.fr/vbourgeais/GraphGONet) project from Victoria Bourgeais.
+
+
+The project may be used in order to build a model for class prediction, in a context where the data can be mapped to the different concepts of an ontology that stores the domain knowledge.
+
+The prediction output by the model is associated with an explaination ofwhy the prediction was made.
+The explaination is a subset of the concepts and relations of the ontology that are used by the GNN in order to make the prediction.
+
 
 ## 📊 Model Architecture
 
-![GNN Architecture](img/GNNmodel.png)
+![GNN Architecture](assets/GNNmodel.png)
 
 ---
 

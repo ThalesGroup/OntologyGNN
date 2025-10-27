@@ -352,7 +352,7 @@ def load_data(dataset_path, device, data_config):
 
                     data_list.append(data)
 
-                random.shuffle(data_list)
+                random.shuffle(data_list[:2])
                 if n_samples:
                     train_loader = DataLoader(
                         data_list[:n_samples], batch_size=16, shuffle=True,
