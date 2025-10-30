@@ -1,8 +1,19 @@
-data/
-!data/titanic/*.rdf
-!data/titanic/*.ttl
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
 
 # Dotted as white-list
 .*
 !.github
 !.gitignore
+
+data/
+!data/titanic/*.rdf
+!data/titanic/*.ttl
